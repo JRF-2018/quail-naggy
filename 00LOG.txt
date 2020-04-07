@@ -1,0 +1,466 @@
+
+
+	quail-naggy ログ
+	(Created: 2009-09-03 +0900, Time-stamp: <2020-01-24T03:01:51Z>)
+
+
+X. ログ
+
+2020-01-24 -- naggy-backend.pl
+
+  * 内部的な変更。先頭が大文字の単漢字変換を SKK にするかどうかを
+    default-init.nginit 内で指定するようにした。
+
+2020-01-23 -- naggy-backend.pl
+
+  * SKK を使うとき ":" を先頭に打つのは面倒なので、先頭が大文字なら
+    SKK を参照するようにする。(2020-01-16 提案)
+
+  * delete-tankanji-dic, delete-skk-dic を作った。
+
+2017-11-12 -- quail-naggy.el
+
+  * quail-naggy-version という定数を作っておいた。もっと早くやっておく
+    べきだった。
+
+2017-11-12 -- naggy-backend.pl
+
+  * ローマ字カナ変換で、FYA = フャ、FYU = フュ、FYO = フョ に対応。
+    trl/japanese-roman-*.trl を変更。
+
+  * 公開のために、lib/Naggy/Backend.pm のバージョンナンバーを 0.10 に
+    上げておく。
+
+2017-07-12 -- quail-naggy.el
+
+  * naggy-vk-first-kouho-number-of-plane に混入していたバグを除去。
+
+2017-07-07 -- naggy-backend.pl
+
+  * 直前の機種依存文字について。調べてみると、pc-9801 の罫線だけのよう
+    だ。ググっても、その罫線がどのコードにあたるかわからなかったが、
+    Unicode の罫線素片と数が一致しているような気がするので、無理やりそ
+    れにあてはめるコードを足してみた。つまり シフトJIS の 0x86A2 から
+    0x86ED までを Unicode の 0x2500 から 0x254B にあてはめてみた。
+
+    ただし、罫線素片を候補ウィンドウに表示させるとズレることがあるため、
+    まともに使えない。Windows で gnupack の Emacs 23 だとうまくいくが、
+    Myrica フォントを使った Emacs 24や Emacs 25 だと、フォントでは全角
+    の罫線素片の char-widthが半角のものと全角のものが混在して表示がズレ
+    る。(set-language-environment "Japanese") をしていてもそうなる。こ
+    れを解決するには、East Asian Ambiguous Width について適当に設定して
+    やればよい。↓を使えば解決する。
+
+    《GitHub - hamano/locale-eaw: East Asian Ambiguous Width問題と絵文字の横幅問題の修正ロケール》
+     https://github.com/hamano/locale-eaw
+     ＞
+     (require 'eaw)
+     (eaw-fullwidth)
+     ＜
+
+2017-07-04 -- naggy-backend.pl
+
+  * Wind2.txt などシフト JIS の単漢字辞書を使うときに、シフト JIS で一
+    文字でも UTF-8 に変換すると二文字になるものがあり、その処理がうまく
+    いっていなかった。EUC-JP ではそういうことは起きない。その修正を行っ
+    た。ただし、その問題が該当するのは機種依存文字の罫線などで、Perl の
+    Encode ではうまく UTF-8 に変換されないらしく、結局、変換結果はおか
+    しくなってしまうので意味のない修正ということになる。
+
+2017-05-28 -- quail-naggy.el
+
+  * 変換時 backspace が naggy-convert-prev-page に割り当たっていなかっ
+    たのを修正。
+
+2017-05-28 -- naggy-backend.pl
+
+  * Naggy::TankanjiDic を変更。場合により日本語読み(い や まん)を英語読
+    み(i や man)より優先度を高くした。tankanji.txt や Wind2.txt などの
+    辞書をいじるのを嫌って、アルゴリズムを複雑にしたが、よくない方策を
+    取ってしまったかもしれない。
+
+  * test_tankanji.pl で、EUC-JP で単漢字一文字なのが Unicode で二文字
+    以上になることがないかチェックした。ないようだった。
+
+2017-05-22 -- naggy-backend.pl
+
+  * japanese-roman-period.trl japanese-roman-kutouten.trl の NN と N
+    の位置を交換し、逆変換時にまっとうになるようにした。これは
+    quail-naggy よりも jrf_semaphore.pl に重要な変更。
+
+2017-04-29 -- quail-naggy.el
+
+  * 「『風』は、入力が終ったあととかは、制御キーでバックスペースなどが
+    自由にできる。しかし、quail-naggy.el では、元の quail モードの制限らし
+    く、それができないことがある。」というのは、どうも quail モードに
+    入ってから何もないときにスペースを入力すると起きていることがわかっ
+    た。正しい方法ではないかもしれないが、一応、それに対処しておいた。
+
+2017-04-26 -- quail-naggy.el
+
+  * ヘブライ語入力は brs'syt#hebrew として変換すなわちスペースを押すと
+    確定するようにする。そのため、naggy-backend.pl への convert 要求し、
+    リストだけでなく文字列を返せるようプロトコルを増設しないといけない。
+    → 増設した。また "\e " で、前の modification (#hebrew とか) を挿入
+    して変換できるようにした。
+
+  * quail-naggy は、変換時、スペースによるページ換えのときには、ページ
+    換えと同時に、リストの順に従って候補を表示する。このとき、候補に対
+    応するページには飛ばないことにし、あくまでリスト順に候補を表示する。
+    絞り込みがなされているときは、絞り込まれた物がリストの先に来るよう
+    にする。
+
+2017-04-26 -- naggy-backend.pl
+
+  * trl テーブルをいっぱい書いた。
+
+  * hebrew 変換などに対応。latin-1 変換にも対応。ヘブライ語やアラビア
+    語が実際にどういう unicode 文字で運用されているか研究してから対応
+    する。→ 普通、ヘブライ語は語末形などが変形された文字コードが使わ
+    れ、アラビア語では語末などに関係ない文字コードが使われているようだ。
+
+  * ギリシャ語は、ψ を xh、ξ を x、χ を c、η を eh、ω を oh で入
+    力する。語末の σは sh で入力する。h が特殊コード。大文字は XH で
+    も Xh でもよいこととする。 → 普通に ψ を ps とする。πσ は p_s
+    で入力する。
+
+  * ロシア語は↓を参考にする。ただし、`` は u`、` は o` にする。ts は
+    th、shch は xh とする。→ そのままにする。かわりに t_s などと _ を
+    delimiter として使う。__ で _ に。
+
+    《ローマ字→キリル文字変換プログラム》
+    http://www.rosianotomo.com/romcyr/romcyr.htm
+
+  * XXXX,u. でユニコード変換。
+
+2017-04-25 -- naggy-backend.pl
+
+  * モジュールに分割した。
+
+  * 「.gi」などで変換できるようにする。Naggy::TankanjiDic の convert を
+    見直す。
+
+  * tesuto#hira などに対応。
+
+  * tu:KiWoTuKeru などに対応。ローマ字の大文字のところで漢字かひらがな
+    に変わるというのを指定して、絞り込みができるようになった。
+
+  * convert 時に # とともに指定する変換の名前は、add-convert-name-skk、
+    add-convert-name-tankanji、add-convert-name-translit、
+    delete-convert-name で指定する。
+
+  * デフォルトの変換を skk か tankanji か選べるようにする。デフォルト
+    でない変換を指定したいときは、":kanji" などと : を最初にして入力す
+    るか、kanji#j または kan#J で変換する。naggy-backend.pl に対しては、
+    set-default-convert skk または set-default-convert tankanji によっ
+    て指定する。短縮で set-default-convert j または
+    set-default-convert J でも良いことにする。→ set-default-convert
+    はなしにして convert-with-default (または単に convert に引数を多く
+    指定するの)を使う。 → set DEFAULT_CONVERT skk などとして対応。
+
+2017-04-24 -- naggy-backend.pl
+
+  * japanese-roman-kutouten.trl などを作成。
+
+  * load_init_file の .else のバグを修正。
+
+  * Convert の new で $obj->{ngb} = $ngb にするとおかしな warn が出た。
+    どうも JRF::MyOO が悪さをしているらしい。
+
+2017-04-23 -- naggy-backend.pl
+
+  * load-translit-inversely からはじめて、auto-load-translit を作る。
+
+  * load-translit-table, charmap-of-translit-table などを
+    load-translit, charmap-of-translit に置き換える。
+
+  * process_command 内で eval してエラー(die)をフックするようにした。
+    また、$SIG{__WARN__} を設定した。
+
+  * バージョンを 0.07 にいちおう上げておく。これは次のリリース後まで変
+    えないように。
+
+2017-04-22 -- naggy-backend.pl
+
+  * trl ファイルの . に関するバグ取り。Naggy:next_line からしておかしっ
+    かった。コメントだけの行が空行と解釈されるのを修正した。
+
+2017-04-04 -- quail-naggy.el
+
+  * quail 入力のとき、shift+space で、スペースが入力できるようにした。
+
+2015-11-15 -- quail-naggy.el
+
+  * マウスで候補を指定できるようにした。mouse-1 で指定。mouse-2 で決定。
+
+2015-11-13 -- quail-naggy.el
+
+  * 単漢字変換のとき、一番最初の候補が 1ページ目に来ないときの動作を修
+    正。
+
+  * naggy-backend-command で Timeout したときに、エラーを出すようにした。
+    頻繁に Timeout する場合は .emacs で (setq naggy-backend-timeout 30)
+    などとして時間を延長すればいい。
+
+2015-11-13 -- quail-naggy.el
+
+  * 更新。バージョン 0.03。
+
+  * naggy-vk-up-kouho などを作る。仮想鍵盤上のカーソルの移動についてか
+    なりいじった。
+
+2015-11-13 -- naggy-backend.pl
+
+  * tankanji_dic が undef の場合にも対応。
+
+2015-10-23 -- naggy-backend.pl
+
+  * 更新。バージョン 0.02。
+
+  * オプション --punctuation-fullwidth-period を作り「、。」を「，．」
+    で書く人に対応。ただし、「、。」を「、．」で書く人とかにはまだ非対
+    応。希望者があれば考える。
+
+2015-10-18 -- naggy-backend.pl
+
+  * alpha-hira, alpha-kata の translit において、hw-fw を最後にかませ
+    ることにした。ひらがな変換やカタカナ変換のとき、? や ! を半角のま
+    ま残すのではなく全角に変換するようにした。
+
+  * 半角カタカナ変換で "。" や "、" が出なかったのを修正した。
+
+  * SKKDic TankanjiDIc クラスに DESTROY メソッドを足した。
+
+2015-10-17 -- quail-naggy.el
+
+  * naggy-convert-prev-page-or-cancel を作成。backspace 時、最初のペー
+    ジが表示されていたら、変換をキャンセルするようにした。
+
+2015-10-16 -- quail-naggy.el
+
+  * 初公開。バージョン 0.01。
+
+2015-10-15 -- quail-naggy.el
+
+  * vkegg.el から naggy-vk に関するコードを移殖。
+
+  * kkc.el から naggy-convert に関するコードを移殖。
+
+  * 候補一覧表示時の一時決定は shift + 文字ではなく meta + 文字にする。
+    Emacs が shift + 文字への対応が不十分なため。(2015-10-09)
+
+2015-10-12 -- naggy-backend.pl
+
+  * test_convert.pl の Naggy::Backend::Convert を nagg-backend.pl に統
+    合した。
+
+2015-10-11 -- naggy-backend.pl
+
+  * test_convert.pl を作成。
+
+  * jrf_semaphore.pl の Naggy::Backend 等をこちらに移す。2015-10-10 の
+    エラー処理は反映させた。
+
+2015-10-10 -- naggy-backend.pl
+
+  * load-init-file のエラー処理を変更。エラー時にはすぐに戻るようにし
+    た。
+
+  * make_tankanji_dic_db.pl を作成。
+
+2015-10-09 -- make_skk_dic_db.pl, bushu_skk_dic.txt
+
+  * make_skk_dic_db.pl を作成。
+
+  * ~/src/naggy/make_bushu_skk_dic.pl を作成し、bushu_skk_dic.txt を作
+    成。
+
+2014-03-09 -- naggy-backend.pl
+
+  * Naggy::Backend の開発は、完全に nes_semaphore 下へ移行。しばらく、
+    こちらへは、あとでもって来ることを考えた部分のみ更新の予定。
+
+2014-03-05 -- naggy-backend.pl
+
+  * load_from_string をオプションを取る形式にした。
+
+  * コマンドラインオプション周りを改善。
+
+2014-03-04 -- naggy-backend.pl
+
+  * MyOO 化もここでしてしまった。
+
+  * nginit の if とかも # ではなく . ではじめることにした。
+
+2014-02-19 -- naggy-backend.pl
+
+  * Perl 部分の開発は、↓へ移行。
+
+    ~/projects/genesis-0/nes_semaphore/src/jrf_semaphore.pl
+
+    データ部分はこのディレクトリのままで、上のアーカイブを作るときもこ
+    こから持っていく予定。
+
+    それに合わせ、trl のヘッダコマンドを # ではなく . からはじめるよう
+    にした。(#case-sensitive を .case-sensitive みたいに。)
+
+2009-09-14 -- quail-naggy.el
+
+  * naggy-backend-process-filter。vc-process-filter と Elisp の info
+    を参考にした。
+
+2009-09-14 -- naggy-backend.pl。
+
+  * escape-e を作る、または、| をエスケープするようにする。escape-e の
+    デメリットは == などで、エスケープ後のものの比較ができなくなること
+    が増えること。| をエスケープするようにするデメリットは、= や将来的
+    には & をエスケープする必要も出るなど際限がなくなること。
+
+    しかし、|| や == には横にスペースを必要としてるので \0${VAR:e} 同
+    志を比較するようにすれば、いらないはず…。
+    (TODO:2009-09-14)
+
+    結局、escape-e のコードだけ書いてコメントアウトした。
+
+  * # if number を作る。(TODO:2009-09-14)
+
+  * naggy_is_true を作る。内部コマンドの引数として渡されるものは今後そ
+    れで true を判断する。(TODO:2009-09-12)
+
+  * # warn や # info を返し、フロントエントはそれを無視する処理をする。
+    # error の中を escape する。(TODO:2009-09-10)
+
+  * lprint を rprint に rerror、rwarn、rinfo を作る。(r は result)
+    (TODO:2009-09-14)
+
+  * flush-init-log。(TODO:2009-09-14)
+
+  * meadow の対応文字の関係で jisx0208 のみの文字に制限できるようにす
+    る。(TODO:2009-09-11)
+
+  * naggy-backend.pl -DVAR=VALUE ができるようにした。コンパイル時にイ
+    ンストール時と違う変数が使えるように。
+
+2009-09-12 -- ngdic_hinting_uppercase_score を作成。
+
+  * wild-card を tail-wild-card に。
+
+2009-09-11 -- ngdic。
+
+  * 辞書ファイル .ngdic には skk 型の前方一致を指定できるようにした。
+
+    # wild-card	*
+    # tail r ら り る れ ろ
+    # tail k か き く け こ
+    あげr*	上げr*	10
+    あg*	上*	9	## これはいらないかも。
+    うごk*	動k*	10
+
+    などと指定する。SKK を見ると r* 型の指定だけで良さそうだけど。
+    (TODO:2009-09-10)
+
+  * 辞書ファイルの yomi から seek 位置を返す SDB ファイルを作っておく。
+    日付けをチェックして読みこむべきでないときは読み込まないようにする。
+    (TODO:2009-09-10)
+
+  * 辞書ファイル .ngdic の形式は以下のようなものが続く。
+
+    yomi	kanji	pos	hint	# comment
+
+    pos の形式は [hindo]:[page]-[offset]@[column] でそれぞれ省略できる。
+    [hindo] が指定されていても [page]-[offset] があれば、
+    [page]-[offset] が優先される。なお、[page] を 0 にするとページ内相
+    対位置の指定となる。そして [column] はぶちぬきの列数を指定するが、
+    当分使わない。(TODO:2009-09-10)
+
+2009-09-10 -- 迷いに迷ったすえ #if true 文を # if is-true にする。英語
+的におかしいかと思って、一端は # is-false 文を作ったが、やっぱり #if !
+is-true 文にする。
+
+2009-09-10 -- 渡された変数名から参照を作るための init-file 内特別コマ
+ンド get を作る。なお get-e はいらない。
+
+2009-09-10 -- quail-define-package のテストをする。原因不明のバグに苦
+しむ。同じことを書いてるはずなのに解決する。おかしな文字コードでも途中
+に入った？
+
+2009-09-09 -- ついでなので read-with-encoding-e と write-with-encoding
+まで作ってしまう。使うべきではない。
+
+2009-09-08 -- init_file のために split-e, echo-e を作る。echo-e はユー
+ザーなどによる不自然な escape を一度 unescape してそれを再 escape して
+正規化するために使える。
+
+${VAR:e} と並んで必要な "# set-u " 文も作る。値の正確なコピーは次のよ
+うにする必要がある。
+
+  # set-u DEST ${SRC:e}
+
+"# if" 文に "# if true VALUE" 文と"# if strinstr QUERY SOURCE" 文を作
+る。
+
+さらに $UNSAFE_INIT でコントロールされるべき、制御構造を作ってしまう。
+nth、nthcdr-e、add。なんといっても
+
+  load-init-file-while-not VARNAME FILE ARG1 ARG2 ...
+
+である。${VARNAME} が未定義か偽である間 FILE を load-init する。そのと
+き、引数を escape したものを " " で join したリストとして ${ARGV} にセッ
+トする(最初だけ)。つまり、関数の中身を f.nginit に作って "# set FUNC
+load-init-file-while-not COND_TERMINATE f.nginit " などとすれば、${FUNC}
+ARG1 ARG2 としてまるでコマンドを作ったかのようにして使える。(ただし、
+常に呼ぶ前に COND_TERMINATE を unset などする必要がある。)
+
+load-init-file そのものも引数をとれるようにした。ちなみに自分自身を
+load-init すれば再帰はすでにできた。
+
+2009-09-08 -- BATCH_MODE translit を作る。pod を書く。
+
+2009-09-07 -- Arabic Presentation Forms-B への変換テーブルを書く。…が、
+これはレガシー対応のようで notepad.exe でも表示できない。徒労に終る。
+
+2009-09-07 -- まだ、quail のほうを全くいじってないのに INIT FILE を処
+理するルーチンを作る。IF 文の扱いがおもしろそうだったので作った。この
+段階でその対応をしてしまうのは正直どうかしてるとは思う。
+
+エスケープの扱いで悩むが、変数に escape をかけて参照する ${VAR:e} を作
+ればだいたい十分であろうということになった。# if 文は || が使えて &&
+が使えない、() も使えないというお粗末実装。
+
+2009-09-05 -- 00LOG.txt、00TODO.txt を書き始める。
+
+translit の completion ルーチンを作った。
+
+ヘブライ語とアラビア語の transliteration テーブルを独自に考えてみた。
+
+2009-09-04 -- naggy-backend.pl の日本語の基本的な translit テーブルを
+作る。
+
+2009-09-03 -- quail-naggy.el と naggy-backend.pl を作る。Meadow でもバッ
+クエンドとパイプでつながることを確認。translit の基本的なルーチンを作
+る。
+
+2009-09-02 -- quail のソースを読みながらあたりをつける。
+
+
+
+X. これ以前の naggy プロジェクトについて
+
+naggy については ~/projects/naggy/doc/PlanNaggy.txt で構想を練り、独自
+の言語naggy-calc まで作りたいと思うようになっていた。
+
+ただ、IME『風』ライクなものを私も作りたいというのは大学のサークル時代
+からあって、vkegg.el をそのころ書いている。サークル仲間がオリジナルな
+辞書を作り、私はプログラムを書くよう期待されていたが、私は vkegg.el を
+作るに留まり、彼らが期待するような PC-9801 や Windows で動くようなソフ
+トを完成できなかった。(彼らのほとんどは vkegg.el が動くところも見てい
+ない。)
+
+2005 年あたりにはフリーの Canna の辞書から独自の辞書を作ろうとしたり
+(~/src/naggy/)、2006 年には Windows 用のバックエンドを作ろうとしたり
+(~/src/kaze-el) している。
+
+(私の PC のディレクトリ構成で語っている。公表分とは関係ない。)
+
+
+(This file was written in Japanese/UTF8.)

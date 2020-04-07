@@ -1,0 +1,76 @@
+## Transliteration map from ASCII alphabet to Arabic Presentation Forms-B.
+## Rule 2.
+##
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+.recursive
+
+^^an	an^^
+^^un	un^^
+^^in	in^^
+^^a	a^^
+^^u	u^^
+^^i	i^^
+^^&	&^^
+^^e	e^^
+^^aa	aa^^
+^^'h	'h^^
+^^'n	'n^^
+^^ah	ah^^
+^^'	'^^
+^^-	-^^
+
+an$	$an
+un$	$un
+in$	$in
+a$	$a
+u$	$u
+i$	$i
+&$	$&
+e$	$e
+aa$	$aa
+'h$	$'h
+'n$	$'n
+ah$	$ah
+'$	$'
+-$	$-
+
+^^$	$^^
+^^--	--^^
+--$	$--
+
+$-an	$an
+$-un	$un
+$-in	$in
+$-a	$a
+$-u	$u
+$-i	$i
+$-&	$&
+$-e	$e
+$-aa	$aa
+$-'h	$'h
+$-'n	$'n
+$-ah	$ah
+$-'	$'
+
+--
+A'&$
+Aaa$
+A'h$
+w'h$
+A'n$
+y'h$
+
+A'a$
+A'u$
+A'i$
+
+w'a$
+w'u$
+#w'i$
+
+y'a$
+y'u$
+y'i$

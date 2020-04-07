@@ -1,0 +1,117 @@
+##
+## Default Initialization File of naggy-backend.pl .
+##
+## Time-stamp: <2020-01-24T02:42:16Z>
+
+## abbrevs.
+## hw:		half width.
+## fw:		full width.
+## kata:	japanese katakana (default fw)
+## hira:	japanese hiragana (fw)
+## alpha:	ascii alphabets and some symbols (default hw)
+
+##
+## Trivial Transliteration.
+##
+abbrev-translit ascii-ascii identical
+abbrev-translit ascii-alpha identical
+abbrev-translit alpha-ascii identical
+abbrev-translit alpha-alpha identical
+
+##
+## Japanese Hiragana & Katakana.
+##
+#require-translit hw-fw # function hw2fw .
+#require-translit hwkata-kata # function hwkata2kata .
+#require-translit fw-hw # function fw2hw .
+#require-translit kata-hwkata #function kata2hwkata .
+#require-translit hira-kata # function hira2kata .
+#require-translit kata-hira # function kata2hira .
+
+auto-load-translit alpha-hwkata-roman-kutouten japanese-roman-kutouten.trl
+auto-load-translit alpha-hwkata-roman-period japanese-roman-period.trl
+auto-load-translit-inversely hwkata-roman-kutouten-alpha \
+  japanese-roman-kutouten.trl
+auto-load-translit-inversely hwkata-roman-period-alpha \
+   japanese-roman-period.trl
+auto-load-translit alpha-hwkata-kbkana-kutouten japanese-kbkana-kutouten.trl
+auto-load-translit alpha-hwkata-kbkana-period japanese-kbkana-period.trl
+auto-load-translit-inversely hwkata-kbkana-kutouten-alpha \
+  japanese-kbkana-kutouten.trl
+auto-load-translit-inversely hwkata-kbkana-period-alpha \
+   japanese-kbkana-period.trl
+
+## Default alpha-hwkata is alpha-hwkata-roman-kutouten.
+abbrev-translit alpha-hwkata alpha-hwkata-roman-kutouten
+abbrev-translit hwkata-alpha hwkata-roman-kutouten-alpha
+
+abbrev-translit alpha-kata alpha-hwkata hwkata-kata hw-fw
+abbrev-translit alpha-hira alpha-hwkata hwkata-kata kata-hira hw-fw
+abbrev-translit kata-alpha kata-hwkata hwkata-alpha
+abbrev-translit kana-alpha hira-kata kata-hwkata hwkata-alpha
+abbrev-translit hira-alpha kana-alpha
+
+load-init-file japanese-mode-change.nginit
+
+##
+## Simple Hebrew.
+##
+auto-load-translit alpha-simple_hebrew simple_hebrew.trl
+auto-load-translit-inversely simple_hebrew-alpha simple_hebrew.trl
+#require-translit hebrew-simplest_hebrew # function simplify_hebrew .
+abbrev-translit alpha-j0heb.nes alpha-simple_hebrew hebrew-simplest_hebrew
+abbrev-translit j0heb.nes-alpha simple_hebrew-alpha
+
+##
+## Simple Greek
+## 
+auto-load-translit alpha-simple_greek simple_greek.trl
+auto-load-translit-inversely simple_greek-alpha simple_greek.trl
+
+##
+## Simple Cyrillic
+## 
+auto-load-translit alpha-simple_cyrillic simple_russian.trl
+auto-load-translit-inversely simple_cyrillic-alpha simple_russian.trl
+
+##
+## Simple Arabic
+## 
+auto-load-translit alpha-simple_arabic arabic-alphabet.trl
+auto-load-translit-inversely simple_arabic-alpha arabic-alphabet.trl
+
+##
+## Latin-1 (SeNoLEBLO)
+## 
+auto-load-translit alpha-simple_latin_1 simple_latin_1.trl
+auto-load-translit-inversely simple_latin_1-alpha simple_latin_1.trl
+
+##
+## About Conversion.
+##
+set DEFAULT_CONVERT tankanji
+add-convert-name-tankanji tankanji
+add-convert-name-tankanji J
+add-convert-name-skk skk
+add-convert-name-skk j
+add-convert-name-unicode u
+add-convert-name-translit a identical
+add-convert-name-translit fw hw-fw
+add-convert-name-translit hira alpha-hira
+add-convert-name-translit h alpha-hira
+add-convert-name-translit kata alpha-kata
+add-convert-name-translit k alpha-kata
+add-convert-name-translit hwkata alpha-hwkata
+add-convert-name-translit hebrew alpha-simple_hebrew
+add-convert-name-translit greek alpha-simple_greek
+add-convert-name-translit russian alpha-simple_cyrillic
+add-convert-name-translit cyrillic alpha-simple_cyrillic
+add-convert-name-translit arabic alpha-simple_arabic
+add-convert-name-translit latin alpha-simple_latin_1
+
+set CAPITALIZED_TANKANJI tankanji
+.if defined FRONT_END
+  .if ${FRONT_END:e} == quail-naggy
+    set CAPITALIZED_TANKANJI skk
+  .endif
+.endif

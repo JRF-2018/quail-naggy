@@ -1,0 +1,103 @@
+## Transliteration map from ASCII alphabet to Arabic Presentation Forms-B.
+## Rule 1.
+##
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+.auto-insert-first ^^
+.auto-insert-last $
+
+A	A^^		# ALEF
+b	b-		# BEH
+Th	Th^^		# TEH MURBUTA
+t	t-		# TEH
+th	th-		# THEH
+j	j-		# JEEM
+Hh	Hh-		# HAH
+kh	kh-		# KHAH
+d	d^^		# DAL
+dh	dh^^		# THAL
+r	r^^		# REH
+z	r^^		# ZAIN
+s	s-		# SEEN
+sh	sh-		# SHEEN
+S	S-		# SAD
+D	D-		# DAD
+T	T-		# TAH
+Z	Z-		# ZAH
+E	E-		# AIN
+gh	gh-		# GHAIN
+
+f	f-		# FEH
+q	q-		# QAF
+k	k-		# KAF
+l	l-		# LAM
+m	m-		# MEM
+N	N-		# NUN
+H	H-		# HEH
+w	w^^		# WAW
+y	y-		# ALEF MAKSURA
+yh	yh-		# YEH
+
+## Hamza
+'	$'^^		#Hamza
+
+## Vowls
+an	an		\x20\u{64B}	# FATHATAN
+un	un		\x20\u{64C}	# DAMMATAN
+in	in		\x20\u{64D}	# KASRATAN
+a	a		\x20\u{64E}	# FATHA
+u	u		\x20\u{64F}	# DAMMA
+i	i		\x20\u{650}	# KASRA
+&	&		\x20\u{651}	# SHADDA
+e	e		\x20\u{652}	# SUKUN
+aa	aa		\x20\u{653}	# MADDAH ABOVE
+'h	'h		\x20\u{654}	# HAMZA ABOVE
+'n	'n		\x20\u{655}	# HAMZA BELOW
+
+ah	ah		\x20\u{670}	# SUPERSCRIPT ALEF
+
+## Wasla
+#Ah	Ah^^				# ALEF WITH WASLA
+
+## Punctuations
+,			# COMMA
+;			# SEMICOLON
+?			# QUESTION MARK
+-	--		# TATWEEL
+%			# PERCENT SIGN
+,n			# DECIMAL SEPARATOR
+,h			# THOUSANDS SEPARATOR
+*			# FIVE POINTED STAR
+
+## Numbers
+0			# 0
+1			# 1
+2			# 2
+3			# 3
+4			# 4
+5			# 5
+6			# 6
+7			# 7
+8			# 8
+9			# 9
+
+## Combination
+A'&	A'&^^		# ALEF with MADDA
+A'h	A'h^^		# ALEF with HAMZA ABOVE
+w'h	w'h^^		# WAW with HAMZA ABOVE
+A'n	A'n^^		# ALEF with HAMZA BELOW
+y'h	y'h^^		# YEH with HAMZA ABOVE
+
+A'a	A'a^^	# ALEF with HAMZA and FATHA
+A'u	A'u^^	# ALEF with HAMZA and DAMMA
+A'i	A'i^^	# ALEF with HAMZA and KASRA
+w'a	w'a^^	# WAW with HAMZA and FATHA
+w'u	w'u^^	# WAW with HAMZA and DAMMA
+#w'i	w'i^^	# WAW with HAMZA and KASRA
+y'a	y'a^^	# YEH with HAMZA and FATHA
+y'u	y'u^^	# YEH with HAMZA and DAMMA
+y'i	y'i^^	# YEH with HAMZA and KASRA
+
+lA	lA^^	# LAM ALEF

@@ -1,0 +1,14 @@
+## read by naggy-backend.pl .
+## .set VERSION 0.01 # Time-stamp: <2017-04-26T16:18:11Z>
+
+##
+## Necessary Loading.
+## 
+load-init-file default-init.nginit
+
+##
+## About Conversion.
+##
+set-tankanji-dic tankanji.txt -e
+add-skk-dic SKK-JISYO.L -e
+add-skk-dic bushu-skk-dic.txt -e

@@ -1,0 +1,77 @@
+##
+## Transliteration map from ASCII alphabet to UTF8 Greek.
+##
+.version 0.01		# Time-stamp: <2017-04-26T06:43:15Z>
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+
+## Capital Letters
+A  	\u{391}		# ALPHA
+B	\u{392}		# BETA
+G	\u{393}		# GAMMA
+D	\u{394}		# DELTA
+E	\u{395}		# EPSILON
+Z	\u{396}		# ZETA
+Eh	\u{397}		# ETA
+EH	\u{397}		# ETA
+Th	\u{398}		# THETA
+TH	\u{398}		# THETA
+I	\u{399}		# IOTA
+K	\u{39A}		# KAPPA
+L	\u{39B}		# LAMBDA
+M	\u{39C}		# MU
+N	\u{39D}		# NU
+X	\u{39E}		# XI
+O	\u{39F}		# OMICRON
+P	\u{3A0}		# PI
+R	\u{3A1}		# RHO
+S	\u{3A3}		# SIGMA
+T	\u{3A4}		# TAU
+U	\u{3A5}		# UPSILON
+Ph	\u{3A6}		# PHI
+PH	\u{3A6}		# PHI
+C	\u{3A7}		# CHI
+Ps	\u{3A8}		# PSI
+PS	\u{3A8}		# PSI
+Oh	\u{3A9}		# OMEGA
+OH	\u{3A9}		# OMEGA
+
+## Small Letters
+a  	\u{3B1}		# ALPHA
+b	\u{3B2}		# BETA
+g	\u{3B3}		# GAMMA
+d	\u{3B4}		# DELTA
+e	\u{3B5}		# EPSILON
+z	\u{3B6}		# ZETA
+eh	\u{3B7}		# ETA
+th	\u{3B8}		# THETA
+i	\u{3B9}		# IOTA
+k	\u{3BA}		# KAPPA
+l	\u{3BB}		# LAMBDA
+m	\u{3BC}		# MU
+n	\u{3BD}		# NU
+x	\u{3BE}		# XI
+o	\u{3BF}		# OMICRON
+p	\u{3C0}		# PI
+r	\u{3C1}		# RHO
+s$	\u{3C2}		# SIGMA
+s	\u{3C3}		# SIGMA
+t	\u{3C4}		# TAU
+u	\u{3C5}		# UPSILON
+ph	\u{3C6}		# PHI
+c	\u{3C7}		# CHI
+ps	\u{3C8}		# PSI
+oh	\u{3C9}		# OMEGA
+
+## Some Tricks
+p_s	\u{3C0}\u{3C3}
+p_s$	\u{3C0}\u{3C2}
+P_S	\u{3A0}\u{3A3}
+p_S	\u{3C0}\u{3A3}
+P_s	\u{3A0}\u{3C3}
+P_s$	\u{3A0}\u{3C2}
+_$	$
+__	_
+_	\0

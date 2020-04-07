@@ -1,0 +1,106 @@
+## Transliteration map from ASCII alphabet to Simple Arabic letter.
+##
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+#.completion-beginning {
+#.auto-insert-first ^^
+#.auto-insert-last $
+
+## Alphabet
+A	\u{627}		# ALEF
+b	\u{628}		# BEH
+Th	\u{629}		# TEH MURBUTA
+t	\u{62A}		# TEH
+th	\u{62B}		# THEH
+j	\u{62C}		# JEEM
+Hh	\u{62D}		# HAH
+kh	\u{62E}		# KHAH
+d	\u{62F}		# DAL
+dh	\u{630}		# THAL
+r	\u{631}		# REH
+z	\u{632}		# ZAIN
+s	\u{633}		# SEEN
+sh	\u{634}		# SHEEN
+S	\u{635}		# SAD
+D	\u{636}		# DAD
+T	\u{637}		# TAH
+Z	\u{638}		# ZAH
+E	\u{639}		# AIN
+gh	\u{63A}		# GHAIN
+
+f	\u{641}		# FEH
+q	\u{642}		# QAF
+k	\u{643}		# KAF
+l	\u{644}		# LAM
+m	\u{645}		# MEM
+N	\u{646}		# NUN
+H	\u{647}		# HEH
+w	\u{648}		# WAW
+y	\u{649}		# ALEF MAKSURA
+yh	\u{64A}		# YEH
+
+p	\u{67E}		# PEH
+g	\u{686}		# TCHEH
+v	\u{6A4}		# VEH
+
+## Hamza
+'	\u{621}		#Hamza
+
+## Vowls
+an	\u{64B}		\x20\u{64B}	# FATHATAN
+un	\u{64C}		\x20\u{64C}	# DAMMATAN
+in	\u{64D}		\x20\u{64D}	# KASRATAN
+a	\u{64E}		\x20\u{64E}	# FATHA
+u	\u{64F}		\x20\u{64F}	# DAMMA
+i	\u{650}		\x20\u{650}	# KASRA
+&	\u{651}		\x20\u{651}	# SHADDA
+e	\u{652}		\x20\u{652}	# SUKUN
+aa	\u{653}		\x20\u{653}	# MADDAH ABOVE
+'h	\u{654}		\x20\u{654}	# HAMZA ABOVE
+'n	\u{655}		\x20\u{655}	# HAMZA BELOW
+
+ah	\u{670}		\x20\u{670}	# SUPERSCRIPT ALEF
+
+## Wasla
+Ah	\u{671}				# ALEF WITH WASLA
+
+## Punctuations
+,	\u{60C}		# COMMA
+;	\u{61B}		# SEMICOLON
+?	\u{61F}		# QUESTION MARK
+-	\u{640}		# TATWEEL
+%	\u{66A}		# PERCENT SIGN
+,n	\u{66B}		# DECIMAL SEPARATOR
+,h	\u{66B}		# THOUSANDS SEPARATOR
+*	\u{66C}		# FIVE POINTED STAR
+
+## Numbers
+0	\u{660}		# 0
+1	\u{661}		# 1
+2	\u{662}		# 2
+3	\u{663}		# 3
+4	\u{664}		# 4
+5	\u{665}		# 5
+6	\u{666}		# 6
+7	\u{667}		# 7
+8	\u{668}		# 8
+9	\u{669}		# 9
+
+## Combination
+A'&	\u{622}		# ALEF with MADDA
+A'h	\u{623}		# ALEF with HAMZA ABOVE
+w'h	\u{624}		# WAW with HAMZA ABOVE
+A'n	\u{625}		# ALEF with HAMZA BELOW
+y'h	\u{626}		# YEH with HAMZA ABOVE
+
+A'a	\u{622}\u{64E}	# ALEF with HAMZA and FATHA
+A'u	\u{622}\u{64F}	# ALEF with HAMZA and DAMMA
+A'i	\u{625}\u{650}	# ALEF with HAMZA and KASRA
+w'a	\u{624}\u{64E}	# WAW with HAMZA and FATHA
+w'u	\u{624}\u{64F}	# WAW with HAMZA and DAMMA
+#w'i	\u{624}\u{650}	# WAW with HAMZA and KASRA
+y'a	\u{626}\u{64E}	# YEH with HAMZA and FATHA
+y'u	\u{626}\u{64F}	# YEH with HAMZA and DAMMA
+y'i	\u{626}\u{650}	# YEH with HAMZA and KASRA

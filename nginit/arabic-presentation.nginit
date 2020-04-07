@@ -1,0 +1,5 @@
+load-translit arabic-1 arabic-rule-1.trl
+load-translit arabic-2 arabic-rule-2.trl
+load-translit arabic-3 arabic-rule-3.trl
+abbrev-translit arabic-presentation arabic-1 arabic-2 arabic-3
+abbrev-translit alpha-j0ar.presen arabic-presentation

@@ -1,0 +1,147 @@
+## Transliteration map from ASCII alphabet to UTF8 Hebrew (EXPERIMENTAL).
+##
+.version 0.01		# Time-stamp: <2014-03-14T08:16:32Z>
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+.completion-beginning {
+.auto-insert-last $
+
+## Alphabet
+'	\u{5D0}		# ALEF
+b	\u{5D1}		# BET
+g	\u{5D2}		# GIMEL
+d	\u{5D3}		# DALET
+h	\u{5D4}		# HE
+v	\u{5D5}		# VAV
+x	\u{5D6}		# HET
+z	\u{5D7}		# ZAYIN
+T	\u{5D8}		# TET
+y	\u{5D9}		# YOD
+c$	\u{5DA}		# KAF FINAL
+c	\u{5DB}		# KAF
+l	\u{5DC}		# LAMED
+m$	\u{5DD}		# MEM FINAL
+m	\u{5DE}		# MEM
+n$	\u{5DF}		# NUN FINAL
+n	\u{5E0}		# NUM
+S	\u{5E1}		# SAMEKH
+`	\u{5E2}		# AYN
+f$	\u{5E3}		# PE FINAL
+f	\u{5E4}		# PE
+Z$	\u{5E5}		# TSADI FINAL
+Z	\u{5E6}		# TSADI
+q	\u{5E7}		# QOF
+r	\u{5E8}		# RESH
+s	\u{5E9}		# SHIN
+t	\u{5EA}		# TAV
+
+## Dagesh and Shin dot
+.	\u{5BC}		\x20\u{5BC}	# DAGESH OR MAPIQ
+^	\u{5C1}		\x20\u{5C1}	# SHIN DOT
+_	\u{5C2}		\x20\u{5C2}	# SIN DOT
+
+## Alphabet Another Transliteration (with DAGESH)
+w	\u{5D5}		# VAV
+K$	\u{5DA}\u{5BC}	# KAF FINAL
+K	\u{5DB}\u{5BC}	# KAF
+A	\u{5E2}		# AYN
+p$	\u{5E3}\u{5BC}	# PE FINAL
+p	\u{5E4}\u{5BC}	# PE
+k	\u{5E7}		# QOF
+
+## Remove Double Dagesh
+K$.	\u{5DA}\u{5BC}	# KAF FINAL
+K.	\u{5DB}\u{5BC}	# KAF
+p$.	\u{5E3}\u{5BC}	# PE FINAL
+p.	\u{5E4}\u{5BC}	# PE
+
+## Alphabetic Ligature
+V	\u{5F0}		# DOUBLE VAV
+W	\u{5F1}		# VAV YOD
+Y	\u{5F2}		# DOUBLE YOD
+
+## Alien Pronunciation
+j	\u{5D2}'	# GIMEL with APOSTROPHE
+J	\u{5D7}'	# ZAYIN with APOSTROPHE
+C$	\u{5E5}'	# TSADI FINAL with APOSTROPHE
+C	\u{5E6}'	# TSADI with APOSTROPHE
+
+
+## Punctuation and Points
+e	\u{5B0}		\x20\u{5B0}	# SHEVA
+Ie	\u{5B1}		\x20\u{5B1}	# HATAF SEGOL
+ae	\u{5B2}		\x20\u{5B2}	# HATAF PATAH
+oe	\u{5B3}		\x20\u{5B3}	# HATAF QAMATS
+i	\u{5B4}		\x20\u{5B4}	# HIRIQ
+E	\u{5B5}		\x20\u{5B5}	# TSERE
+I	\u{5B6}		\x20\u{5B6}	# SEGOL
+a	\u{5B7}		\x20\u{5B7}	# PATAH
+o	\u{5B8}		\x20\u{5B8}	# QAMATS
+O	\u{5B9}		\x20\u{5B9}	# HOLAM
+
+u	\u{5BB}		\x20\u{5BB}	# QUBITS
+
+{meteg}	\u{5BD}		\x20\u{5BD}	# METEG
+~	\u{5BE}				# MAQAF
+{rafe}	\u{5BF}		\x20\u{5BF}	# RAFE
+|	\u{5C0}				# PASEQ
+
+:	\u{5C3}				# SOF PASUQ
+,	\u{5F3}				# GERESH
+,,	\u{5F4}				# GERSHAYIM
+
+## Abbreviation of Punctuation and Points
+{maqaf}		\u{5BE}				# MAQAF
+{paseq}		\u{5C0}				# PASEQ
+{gereshpunct}	\u{5F3}				# GERESH
+{gershayimpunct}	\u{5F4}			# GERSHAYIM
+
+## Marks
+{masora}	\u{5AF}		\x20\u{5AF}	# MASORA CIRCLE
+{upperdot}	\u{5C4}		\x20\u{5C4}	# UPPER DOT
+
+## Accent
+{etnahta}	\u{591}		\x20\u{591}	# ETNAHTA
+{segol}		\u{592}		\x20\u{592}	# ACCENT SEGOL
+{shalshelet}	\u{593}		\x20\u{593}	# SHALSHELET
+{zaqefqatan}	\u{594}		\x20\u{594}	# ZAQEF QATAN
+{zaqefgadol}	\u{595}		\x20\u{595}	# ZAQEF GAOL
+{tipeha}	\u{596}		\x20\u{596}	# TIPEHA
+{revia}		\u{597}		\x20\u{597}	# REVIA
+{zarqa}		\u{598}		\x20\u{598}	# ZARQA
+{pashta}	\u{599}		\x20\u{599}	# PASHTA
+{yetive}	\u{59A}		\x20\u{59A}	# YETIV
+{tevir}		\u{59B}		\x20\u{59B}	# TEVIR
+{geresh}	\u{59C}		\x20\u{59C}	# ACCENT GERESH
+{gereshmuqdam}	\u{59D}		\x20\u{59D}	# GERESH MUQDAM
+{gershayim}	\u{59E}		\x20\u{59E}	# ACCENT GERSHAYIM
+{quaneypara}	\u{59F}		\x20\u{59F}	# QUANEY PARA
+{telishagedola}	\u{5A0}		\x20\u{5A0}	# TELISHA GEDOLA
+{pazer}		\u{5A1}		\x20\u{5A1}	# PAZER
+
+{munah}		\u{5A3}		\x20\u{5A3}	# MUNAH
+{mahapakh}	\u{5A4}		\x20\u{5A4}	# MAHAPAKH
+{merkha}	\u{5A5}		\x20\u{5A5}	# MERKHA
+{merkhakefula}	\u{5A6}		\x20\u{5A6}	# MERKHA KEFULA
+{darga}		\u{5A7}		\x20\u{5A7}	# DARGA
+{qadma}		\u{5A8}		\x20\u{5A8}	# QADMA
+{telishaqetana}	\u{5A9}		\x20\u{5A9}	# TELISHA QETANA
+{yerahbenyomo}	\u{5AA}		\x20\u{5AA}	# YERAH BEN YOMO
+{ole}		\u{5AB}		\x20\u{5AB}	# OLE
+{iluy}		\u{5AC}		\x20\u{5AC}	# ILUY
+{dehi}		\u{5AD}		\x20\u{5AD}	# DEHI
+{zinor}		\u{5AE}		\x20\u{5AE}	# ZINOR
+
+
+## Abbreviation of Accent
+{tarha}		\u{596}		\x20\u{596}	# TIPEHA
+{zinorit}	\u{598}		\x20\u{598}	# ZARQA
+{yored}		\u{5A5}		\x20\u{5A5}	# MERKHA
+{azla}		\u{5A8}		\x20\u{5A8}	# QADMA
+{galgal}	\u{5AA}		\x20\u{5AA}	# YERAH BEN YOMO
+
+
+## Control Symbol
+$		\0				# FINAL FORM
