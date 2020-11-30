@@ -1,10 +1,18 @@
 
 
 	quail-naggy ログ
-	(Created: 2009-09-03 +0900, Time-stamp: <2020-01-24T03:01:51Z>)
+	(Created: 2009-09-03 +0900, Time-stamp: <2020-11-30T16:56:46Z>)
 
 
 X. ログ
+
+2020-12-01 -- make_emoji_skk_dic.pl
+
+  * ↓より emoji.txt v2.2.1 を取って絵文字辞書を作る。
+    《日本語で絵文字入力するための IME 追加辞書を公開しました - Qiita》  
+    https://qiita.com/peaceiris/items/c40ba39679daeb7555c2
+
+    辞書のディレクトリは ~/projects/naggy/emoji-skk-dic
 
 2020-01-24 -- naggy-backend.pl
 

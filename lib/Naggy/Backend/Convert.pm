@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #require 5.008;
 { package Naggy::Backend::Convert;
-  our $VERSION = "0.16"; # Time-stamp: <2020-01-24T03:06:30Z>
+  our $VERSION = "0.17"; # Time-stamp: <2020-11-30T17:08:47Z>
 }
 
 use strict;
@@ -134,7 +134,7 @@ use utf8; # Japanese English
 	$mode = "skk";
       }
     } elsif ($capitalized_tankanji
-	     && $mode eq "tankanji" && $c ->[0] =~ s/^([A-Z])//) {
+	     && $mode eq "tankanji" && $c ->[0] =~ s/^([A-Z\@])//) {
       $c->[0] = lc($1) . $c->[0];
       $mode = "skk";
     }

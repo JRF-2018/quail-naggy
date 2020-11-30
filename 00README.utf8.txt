@@ -2,7 +2,7 @@
 
     quail-naggy.el: 単漢字変換 Input Method for Emacs.
 
-    (Created: 2015-10-16 +0900, Time-stamp: <2020-01-24T03:02:10Z>)
+    (Created: 2015-10-16 +0900, Time-stamp: <2020-11-30T18:14:25Z>)
 
 
 ■ About the "quail-naggy.el"
@@ -36,8 +36,8 @@ kkc.el を大いに参考にして作った。また、随分前に私自身が�
 
   * Emacs-Lisp ディレクトリ上へのファイルの展開。
 
-  * SKK-JISYO.L や tankanji.txt などの変換用辞書の入手＆インデックス・
-    データベースファイルの作成。
+  * SKK-JISYO.L や tankanji.txt や emoji-skk-dic.txt などの変換用辞書
+    の入手＆インデックス・データベースファイルの作成。
 
   * naggy-backend.pl の設定。
 
@@ -117,9 +117,19 @@ gunzip しておく。
   《SKK辞書 - SKK辞書Wiki》
   http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1
 
-手に入れた tankanji.txt と SKK-JISYO.L を先にファイルをインストールし
-た quiail-naggy/ に置く。ここで、辞書のロードに時間をくわないように、
-インデックス・データベースファイルを作っておく必要がある。
+絵文字を「＠＠かお」などで入力して使うための辞書も用意する。元が MIT
+License のため、quail-naggyのアーカイブには入れていない。↓などから、
+emoji-skk-dic.txt とemoji-skk-dic.txt.sdb.pag と
+emoji-skk-dic.txt.sdb.dir をダウンロードする。
+
+  《GitHub - JRF-2018/naggy-emoji-skk-dic》
+  https://github.com/JRF-2018/naggy-emoji-skk-dic
+
+手に入れた tankanji.txt と SKK-JISYO.L と emoji-skk-dic.txt と
+emoji-skk-dic.txt.sdb.pag と emoji-skk-dic.txt.sdb.dir を先にファイル
+をインストールした quiail-naggy/ に置く。ここで、辞書のロードに時間を
+くわないように、インデックス・データベースファイルを作っておく必要があ
+る。
 
 <source>
 # perl make_skk_dic_db.pl -e SKK-JISYO.L
@@ -160,11 +170,12 @@ load-init-file default-init.nginit
 set-tankanji-dic tankanji.txt -e
 add-skk-dic SKK-JISYO.L -e
 add-skk-dic bushu-skk-dic.txt -e
+add-skk-dic emoji-skk-dic.txt -u
 </source>
 
-ここでも -e は文字コードに euc-jisx0213 を指定するためのオプションで、
-この二番目の引き数の位置になければならない。tankanji.txt が sjis であ
-れば、-s を指定する。
+ここでも -e は文字コードに euc-jisx0213 を指定するためのオプション
+で、-u は utf-8、この二番目の引き数の位置になければならない。
+tankanji.txt が sjis であれば、-s を指定する。
 
 naggy-backend.pl では、付属の alpha-hwkana.trl と simple_hebrew.trl を
 読み込んで使用する。それらは特に設定の必要はない。
@@ -241,11 +252,12 @@ S-return でひらがな確定、S-tab でカタカナ確定をできるよう�
 SKK-JISYO.L で「あk」の読みを持つ「明ける」があるため、「明」が
 highlight して表示される。
 
-Akka:bakeru といったように大文字ではじめた場合、または、:akka:bakeru と
-いったように最初を : ではじめた場合は、単語変換になり、「あっか」という
-読みの候補が「ばける」という読みでしぼり込み検索されて、表示される。1文
-字以上の長さのため、後ろのほうがわからない候補は meta キー+ その候補の
-キーを押すことで候補を一時的に選択できて、後ろがなんであるかがわかる。
+Akka:bakeru といったように大文字(か @)ではじめた場合、また
+は、:akka:bakeru といったように最初を : ではじめた場合は、単語変換にな
+り、「あっか」という読みの候補が「ばける」という読みでしぼり込み検索さ
+れて、表示される。1文字以上の長さのため、後ろのほうがわからない候補は
+meta キー+ その候補のキーを押すことで候補を一時的に選択できて、後ろが
+なんであるかがわかる。
 
 この辺りは『風』の機能よりも拡張されている部分になる。
 
@@ -289,6 +301,10 @@ load-init-file site-init.nginit
   .endif
 .endif
 </source>
+
+あまりないことだと思うが、単語変換をデフォルトにした上で、単漢字変換辞
+書が使いたいときは、:aka:akeru のように最初を : ではじめた入力をすれば
+よい。
 
 
 ■ わかっている不具合
@@ -375,6 +391,7 @@ intention is legitimately fulfilled.
 
 ■ 更新ログ
 
+  2020-12-01 -- 更新。バージョン 0.17。
   2020-01-24 -- 更新。バージョン 0.16。
   2020-01-23 -- 更新。バージョン 0.15。
   2017-11-13 -- 更新。バージョン 0.10。
