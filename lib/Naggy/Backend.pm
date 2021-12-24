@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #require 5.008;
 { package Naggy::Backend;
-  our $VERSION = "0.17"; # Time-stamp: <2020-11-30T17:08:53Z>
+  our $VERSION = "0.18"; # Time-stamp: <2021-12-24T07:21:35Z>
 }
 
 use strict;

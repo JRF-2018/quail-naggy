@@ -2,7 +2,7 @@
 
     quail-naggy.el: 単漢字変換 Input Method for Emacs.
 
-    (Created: 2015-10-16 +0900, Time-stamp: <2020-11-30T18:14:25Z>)
+    (Created: 2015-10-16 +0900, Time-stamp: <2021-12-24T08:07:04Z>)
 
 
 ■ About the "quail-naggy.el"
@@ -117,7 +117,7 @@ gunzip しておく。
   《SKK辞書 - SKK辞書Wiki》
   http://openlab.ring.gr.jp/skk/wiki/wiki.cgi?page=SKK%BC%AD%BD%F1
 
-絵文字を「＠＠かお」などで入力して使うための辞書も用意する。元が MIT
+絵文字を「＠＠よみ」などで入力して使うための辞書も用意する。元が MIT
 License のため、quail-naggyのアーカイブには入れていない。↓などから、
 emoji-skk-dic.txt とemoji-skk-dic.txt.sdb.pag と
 emoji-skk-dic.txt.sdb.dir をダウンロードする。
@@ -253,7 +253,8 @@ SKK-JISYO.L で「あk」の読みを持つ「明ける」があるため、「�
 highlight して表示される。
 
 Akka:bakeru といったように大文字(か @)ではじめた場合、また
-は、:akka:bakeru といったように最初を : ではじめた場合は、単語変換にな
+は、:akka:bakeru といったように最初を : ではじめた場合、または、
+akka:bakeru: といったように最後を : にした場合は、単語変換にな
 り、「あっか」という読みの候補が「ばける」という読みでしぼり込み検索さ
 れて、表示される。1文字以上の長さのため、後ろのほうがわからない候補は
 meta キー+ その候補のキーを押すことで候補を一時的に選択できて、後ろが
@@ -303,8 +304,8 @@ load-init-file site-init.nginit
 </source>
 
 あまりないことだと思うが、単語変換をデフォルトにした上で、単漢字変換辞
-書が使いたいときは、:aka:akeru のように最初を : ではじめた入力をすれば
-よい。
+書が使いたいときは、:aka:akeru のように最初を : ではじめた入力または
+aka:akeru: のように最後を : にした入力をすればよい。
 
 
 ■ わかっている不具合
@@ -331,15 +332,33 @@ Windows 7 でこれを避けるもう一つの方法は、IME のツールバー
 んで、その Microsoft IME でない、日本語キーボードを使うというものであ
 る。
 
-Windows 10 でこれを避けるもう一つの方法は、DIFE.exe (Disable IME for
-Emacs) を使うというものである。X Window でも同様にインプット・メソッド
-を Emacs で使わないように ~/.Xresources に Emacs.useXIM: off の一文を
-足さねばならないかもしれない。詳しくは↓に書いた。
+X Window でこれを避ける方法としては、インプット・メソッドを Emacs で使
+わないように ~/.Xresources に Emacs.useXIM: off の一文を足さねばならな
+いかもしれない。
 
-  《Windows 10 (…の…) Emacs で quail-naggy.el を使うには、DIFE.exe が
+Windows 10 でこれを避ける方法として、32bit版 Emacs では DIFE.exe (Disable IME for Emacs) が使える。しかし、64bit版 Emacs では現在のとこ
+ろ使えないようだ(2018年12月28日現在)。
+
+X Window と DIFE.exe については詳しくは↓に書いた。
+
+  《Windows 10（…の…）Emacs で quail-naggy.el を使うには、DIFE.exe が
   ほぼ必須のようだ。 - JRF のひとこと》
   http://jrf.cocolog-nifty.com/statuses/2017/05/windo.html
 
+Windows 64bit版の emacs 26.1 ではしかたなく、私は、Microsoft IME の設定
+をいじって対応している。具体的には、Windows 10 のタスクバーの「あ」と書
+いてるところを右クリックして「プロパティ」を選び、そこで「詳細設定」を
+選ぶと、「Microsft IME の詳細設定」のウィンドウが開く。そこで、「全般」
+→「編集操作」→「キー設定」→「変更」で、「変換」キーの最初のところを
+「-」(何もしない)にし、必要なら「SHIFT+変換」キーを「再変換」に割り当て
+る。…当然、他のソフトも影響するが、メインの日本語入力が私は Emacs なの
+で、しかたなくそうしている。
+
+Windows 10 version 2004 からはさらに IME がバージョンアップしたため、
+上の方法ではうまくいかなくなっている。Windows の設定で Microsoft IME
+の設定を開いたあと「全般」→「以前のバージョンの Microsoft IME を使う」
+をオンにした上で、上のように「プロパティ」「詳細設定」…とやっていく必
+要があるようだ。
 
 さらに、ときどき、Emacs から perl の起動がうまくいかないことがあった。
 Emacs を起動した直後のひらがな確定や単漢字変換のとき、変換すべきローマ
@@ -391,6 +410,7 @@ intention is legitimately fulfilled.
 
 ■ 更新ログ
 
+  2021-12-24 -- 更新。バージョン 0.18。
   2020-12-01 -- 更新。バージョン 0.17。
   2020-01-24 -- 更新。バージョン 0.16。
   2020-01-23 -- 更新。バージョン 0.15。

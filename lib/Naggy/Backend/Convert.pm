@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 #require 5.008;
 { package Naggy::Backend::Convert;
-  our $VERSION = "0.17"; # Time-stamp: <2020-11-30T17:08:47Z>
+  our $VERSION = "0.18"; # Time-stamp: <2021-12-24T07:54:31Z>
 }
 
 use strict;
@@ -104,12 +104,15 @@ use utf8; # Japanese English
     my @r;
     while (@l) {
       my $c = shift(@l);
-      if ($c eq "" && @l > 0 && $l[0] eq "") {
-	push(@r, ":");
+      if ($c eq "" && @l > 0 && @r > 0) {
+	$r[-1] = $r[-1] . ":" . $l[0];
 	shift(@l);
       } else {
 	push(@r, $c);
       }
+    }
+    if (@r == 2 && $r[0] eq "" && $r[1] eq "") {
+      @r = ("");
     }
     @l = @r;
     @r = ();
@@ -126,17 +129,25 @@ use utf8; # Japanese English
     my %r;
     @r = ();
 
+    my $mode_change = 0;
     if ($c->[0] eq "" && @filter) {
       $c = shift(@filter);
+      $mode_change = 1;
+    } elsif ($capitalized_tankanji
+	     && $mode eq "tankanji" && $c ->[0] =~ s/^([A-Z\@])//) {
+      $c->[0] = lc($1) . $c->[0];
+      $mode_change = 1;
+    }
+    if (@filter && $filter[-1]->[0] eq "") {
+      pop(@filter);
+      $mode_change = ! $mode_change;
+    }
+    if ($mode_change) {
       if ($mode eq "skk" && defined $self->{tankanji_dic}) {
 	$mode = "tankanji";
       } else {
 	$mode = "skk";
       }
-    } elsif ($capitalized_tankanji
-	     && $mode eq "tankanji" && $c ->[0] =~ s/^([A-Z\@])//) {
-      $c->[0] = lc($1) . $c->[0];
-      $mode = "skk";
     }
 
     if ($mode eq "skk") {
