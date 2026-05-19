@@ -1,0 +1,26 @@
+##
+## Naggy-Init File: Change Japanese Mode.
+##
+## Time-stamp: <2017-04-25T21:35:15Z>
+
+.if is-true ${JAPANESE_KBKANA:e}
+  set ALLOW_MODIFY_CONVERT 0
+  set JAPANESE_ROMAN_HINT 0
+  .if is-true ${JAPANESE_PUNCT_PERIOD:e}
+    abbrev-translit alpha-hwkata alpha-hwkata-kbkana-period
+    abbrev-translit hwkata-alpha hwkata-kbkana-period-alpha
+  .else
+    abbrev-translit alpha-hwkata alpha-hwkata-kbkana-kutouten
+    abbrev-translit hwkata-alpha hwkata-kbkana-kutouten-alpha
+  .endif
+.else
+  set ALLOW_MODIFY_CONVERT 1
+  set JAPANESE_ROMAN_HINT 1
+  .if is-true ${JAPANESE_PUNCT_PERIOD:e}
+    abbrev-translit alpha-hwkata alpha-hwkata-roman-period
+    abbrev-translit hwkata-alpha hwkata-roman-period-alpha
+  .else
+    abbrev-translit alpha-hwkata alpha-hwkata-roman-kutouten
+    abbrev-translit hwkata-alpha hwkata-roman-kutouten-alpha
+  .endif
+.endif

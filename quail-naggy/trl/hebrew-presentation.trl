@@ -1,0 +1,62 @@
+## Transliteration map from Hebrew to its presentation forms.
+##
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+.completion-beginning {
+## auto-insert-last $
+
+\u{5D9}\u{5B4}	\u{FB1D}	# YOD WITH HIRIQ
+{varika}	\u{FB1E}	\x20\u{FB1E}	# JUDEO-SPANISH VARIKA
+\u{5F2}\u{5B7}	\u{FB1F}	# YOD YOD PATAH
+{wideayin}	\u{FB20}	# WIDE AYIN
+{widealef}	\u{FB21}	# WIDE ALEF
+{widedalet}	\u{FB22}	# WIDE DALET
+{widehe}	\u{FB23}	# WIDE HE
+{widekaf}	\u{FB24}	# WIDE KAF
+{widelamed}	\u{FB25}	# WIDE LAMED
+{widemem}	\u{FB26}	# WIDE MEM
+{wideresh}	\u{FB27}	# WIDE RESH
+{widetav}	\u{FB28}	# WIDE TAV
+{altplus}	\u{FB29}	# ALTERNATIVE PLUS SIGN
+\u{5E9}\u{5C1}	\u{FB2A}	# SHIN
+\u{5E9}\u{5C2}	\u{FB2B}	# SIN
+\u{5E9}\u{5C1}\u{5BC}	\u{FB2C}	# SHIN WITH DAGESH
+\u{5E9}\u{5C2}\u{5BC}	\u{FB2D}	# SIN WITH DAGESH
+\u{5E9}\u{5BC}\u{5C1}	\u{FB2C}	# SHIN WITH DAGESH
+\u{5E9}\u{5BC}\u{5C2}	\u{FB2D}	# SIN WITH DAGESH
+\u{5D0}\u{5B7}	\u{FB2E}	# ALEF WITH PATAH
+\u{5D0}\u{5B8}	\u{FB2F}	# ALEF WITH QAMATS
+\u{5D0}\u{5BC}	\u{FB30}	# ALEF WITH MAPIQ
+\u{5D1}\u{5BC}	\u{FB31}	# BET WITH DAGESH
+\u{5D2}\u{5BC}	\u{FB32}	# GIMEL WITH DAGESH
+\u{5D3}\u{5BC}	\u{FB33}	# DALET WITH DAGESH
+\u{5D4}\u{5BC}	\u{FB34}	# HE WITH MAPIQ
+\u{5D5}\u{5BC}	\u{FB35}	# VAV WITH DAGESH
+\u{5D6}\u{5BC}	\u{FB36}	# ZAYIN WITH DAGESH
+## Reserved: \u{FB37}
+\u{5D8}\u{5BC}	\u{FB38}	# TET WITH DAGESH
+\u{5D9}\u{5BC}	\u{FB39}	# YOD WITH DAGESH
+\u{5DA}\u{5BC}	\u{FB3A}	# KAF FINAL WITH DAGESH
+\u{5DB}\u{5BC}	\u{FB3B}	# KAF WITH DAGESH
+\u{5DC}\u{5BC}	\u{FB3C}	# LAMED WITH DAGESH
+## Reserved: \u{FB3D}
+\u{5DE}\u{5BC}	\u{FB3E}	# MEM WITH DAGESH
+## Reserved: \u{FB3F}
+\u{5E0}\u{5BC}	\u{FB40}	# NUN WITH DAGESH
+\u{5E1}\u{5BC}	\u{FB41}	# SAMEF WITH DAGESH
+## Reserved: \u{FB42}
+\u{5E3}\u{5BC}	\u{FB43}	# PE FINAL WITH DAGESH
+\u{5E4}\u{5BC}	\u{FB44}	# PE WITH DAGESH
+## Reserved: \u{FB45}
+\u{5E6}\u{5BC}	\u{FB46}	# TSADI WITH DAGESH
+\u{5E7}\u{5BC}	\u{FB47}	# QOF WITH DAGESH
+\u{5E8}\u{5BC}	\u{FB48}	# RESH WITH DAGESH
+\u{5E9}\u{5BC}	\u{FB49}	# SHIN WITH DAGESH
+\u{5EA}\u{5BC}	\u{FB4A}	# TAV WITH DAGESH
+\u{5D5}\u{5B9}	\u{FB4B}	# VAV WITH HOLAM
+\u{5D1}\u{5BF}	\u{FB4C}	# BET WITH RAFE
+\u{5DB}\u{5BF}	\u{FB4D}	# KAF WITH RAFE
+\u{5E4}\u{5BF}	\u{FB4E}	# PE WITH RAFE
+{aleflamed}	\u{FB4F}	# LIGATURE ALEF LAMED

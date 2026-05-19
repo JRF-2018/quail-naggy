@@ -1,12 +1,12 @@
 
 
 	quail-naggy ログ
-	(Created: 2009-09-03 +0900, Time-stamp: <2026-05-19T12:12:29Z>)
+	(Created: 2009-09-03 +0900, Time-stamp: <2026-05-19T11:44:04Z>)
 
 
 X. ログ
 
-2026-05-19 -- quail-naggy-alt-convert を取り込む。
+2026-05-19 -- quail-naggy-alt-convert を取り込む(Gemini さんに教わって)。
 
 2020-12-01 -- make_emoji_skk_dic.pl
 

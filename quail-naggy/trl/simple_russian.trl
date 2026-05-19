@@ -1,0 +1,100 @@
+##
+## Transliteration map from ASCII alphabet to UTF8 Cyrillic (EXPERIMENTAL).
+##
+## Referred to:
+##  《ローマ字→キリル文字変換プログラム》
+##  http://www.rosianotomo.com/romcyr/romcyr.htm
+##
+.version 0.01		# Time-stamp: <2017-04-26T07:25:49Z>
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+
+## Capital Letter
+A  	 \u{410}	# A
+B	 \u{411}	# BE
+V	 \u{412}	# VE
+G	 \u{413}	# GHE
+D	 \u{414}	# DE
+E	 \u{415}	# IE
+Yo	 \u{401}	# IO
+Zh	 \u{416}	# ZHE
+Z	 \u{417}	# ZE
+I	 \u{418}	# I
+J	 \u{419}	# SHORT I
+K	 \u{41A}	# KA
+L	 \u{41B}	# EL
+M	 \u{41C}	# EM
+N	 \u{41D}	# EN
+O	 \u{41E}	# O
+P	 \u{41F}	# PE
+R	 \u{420}	# ER
+S	 \u{421}	# ES
+T	 \u{422}	# TE
+U	 \u{423}	# U
+F	 \u{424}	# EF
+Kh	 \u{425}	# HA
+Ts	 \u{426}	# TSE
+Ch	 \u{427}	# CHE
+Sh	 \u{428}	# SHA
+Shch	 \u{429}	# SHCHA
+``	 \u{42A}	# HARD SIGN
+Q	 \u{42B}	# YERU
+`	 \u{42C}	# SOFT SIGN
+E`	 \u{42D}	# E
+Yu	 \u{42E}	# YU
+Ya	 \u{42F}	# YA
+Ii	 \u{418}\u{439}
+Yi	 \u{42B}\u{439}
+Oi	 \u{41E}\u{439}
+Ei	 \u{415}\u{439}
+
+## Small Letter
+a  	 \u{430}	# A
+b	 \u{431}	# BE
+v	 \u{432}	# VE
+g	 \u{433}	# GHE
+d	 \u{434}	# DE
+e	 \u{435}	# IE
+yo	 \u{451}	# IO
+zh	 \u{436}	# ZHE
+z	 \u{437}	# ZE
+i	 \u{438}	# I
+j	 \u{439}	# SHORT I
+k	 \u{43A}	# KA
+l	 \u{43B}	# EL
+m	 \u{43C}	# EM
+n	 \u{43D}	# EN
+o	 \u{43E}	# O
+p	 \u{43F}	# PE
+r	 \u{440}	# ER
+s	 \u{441}	# ES
+t	 \u{442}	# TE
+u	 \u{443}	# U
+f	 \u{444}	# EF
+kh	 \u{445}	# HA
+ts	 \u{446}	# TSE
+ch	 \u{447}	# CHE
+sh	 \u{448}	# SHA
+shch	 \u{449}	# SHCHA
+''	 \u{44A}	# HARD SIGN
+q	 \u{44B}	# YERU
+'	 \u{44C}	# SOFT SIGN
+e'	 \u{44D}	# E
+yu	 \u{44E}	# YU
+ya	 \u{44F}	# YA
+ii	 \u{438}\u{439}
+yi	 \u{44B}\u{439}
+oi	 \u{43E}\u{439}
+ei	 \u{435}\u{439}
+
+## Some Tricks
+sh_ch	\u{448}\u{447}
+Sh_ch	\u{428}\u{447}
+t_s	\u{442}\u{441}
+T_s	\u{422}\u{441}
+_'	'
+_`	`
+__	_
+_	\0

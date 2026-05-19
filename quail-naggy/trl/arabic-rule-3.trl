@@ -1,0 +1,245 @@
+## Transliteration map from ASCII alphabet to Arabic Presentation Forms-B.
+## Rule 3.
+##
+.trl 0.01
+.Unicode 3.0
+.encoding utf8
+.case-sensitive
+
+## Alphabet
+^^A	\u{FE8D}		# ALEF ISOLATED
+A	\u{FE8E}		# ALEF FINAL
+
+^^b$	\u{FE8F}		# BEH ISOLATED
+b$	\u{FE90}		# BEH FINAL
+^^b	\u{FE91}		# BEH INITIAL
+b	\u{FE92}		# BEH MEDIAL
+
+^^Th	\u{FE93}		# TEH MURBUTA
+Th	\u{FE94}		# TEH MURBUTA FINAL
+
+^^t$	\u{FE95}		# TEH ISOLATED
+t$	\u{FE96}		# TEH FINAL
+^^t	\u{FE97}		# TEH INITIAL
+t	\u{FE98}		# TEH MEDIAL
+
+^^th$	\u{FE99}		# THEH ISOLATED
+th$	\u{FE9A}		# THEH FINAL
+^^th	\u{FE9B}		# THEH INITIAL
+th	\u{FE9C}		# THEH MEDIAL
+
+^^j$	\u{FE9D}		# JEEM ISOLATED
+j$	\u{FE9E}		# JEEM FINAL
+^^j	\u{FE9F}		# JEEM INITIAL
+j	\u{FEA0}		# JEEM MEDIAL
+
+^^Hh$	\u{FEA1}		# HAH ISOLATED
+Hh$	\u{FEA2}		# HAH FINAL
+^^Hh	\u{FEA3}		# HAH INITIAL
+Hh	\u{FEA4}		# HAH MEDIAL
+
+^^kh$	\u{FEA5}		# KHAH ISOLATED
+kh$	\u{FEA6}		# KHAH FINAL
+^^kh	\u{FEA7}		# KHAH INITIAL
+kh	\u{FEA8}		# KHAH MEDIAL
+
+^^d	\u{FEA9}		# DAL ISOLATED
+d	\u{FEAA}		# DAL FINAL
+
+^^dh	\u{FEAB}		# THAL ISOLATED
+dh	\u{FEAC}		# THAL FINAL
+
+^^r	\u{FEAD}		# REH ISOLATED
+r	\u{FEAE}		# REH FINAL
+
+^^z	\u{FEAF}		# ZAIN ISOLATED
+z	\u{FEB0}		# ZAIN FINAL
+
+^^s$	\u{FEB1}		# SEEN ISOLATED
+s$	\u{FEB2}		# SEEN FINAL
+^^s	\u{FEB3}		# SEEN INITIAL
+s	\u{FEB4}		# SEEN MEDIAL
+
+^^sh$	\u{FEB5}		# SHEEN ISOLATED
+sh$	\u{FEB6}		# SHEEN FINAL
+^^sh	\u{FEB7}		# SHEEN INITIAL
+sh	\u{FEB8}		# SHEEN MEDIAL
+
+^^S$	\u{FEB9}		# SAD ISOLATED
+S$	\u{FEBA}		# SAD FINAL
+^^S	\u{FEBB}		# SAD INITIAL
+S	\u{FEBC}		# SAD MEDIAL
+
+^^D$	\u{FEBD}		# DAD ISOLATED
+D$	\u{FEBE}		# DAD FINAL
+^^D	\u{FEBF}		# DAD INITIAL
+D	\u{FEC0}		# DAD MEDIAL
+
+^^T$	\u{FEC1}		# TAH ISOLATED
+T$	\u{FEC2}		# TAH FINAL
+^^T	\u{FEC3}		# TAH INITIAL
+T	\u{FEC4}		# TAH MEDIAL
+
+^^Z$	\u{FEC5}		# ZAH ISOLATED
+Z$	\u{FEC6}		# ZAH FINAL
+^^Z	\u{FEC7}		# ZAH INITIAL
+Z	\u{FEC8}		# ZAH MEDIAL
+
+^^E$	\u{FEC9}		# AIN ISOLATED
+E$	\u{FECA}		# AIN FINAL
+^^E	\u{FECB}		# AIN INITIAL
+E	\u{FECC}		# AIN MEDIAL
+
+^^gh$	\u{FECD}		# GHAIN ISOLATED
+gh$	\u{FECE}		# GHAIN FINAL
+^^gh	\u{FECF}		# GHAIN INITIAL
+gh	\u{FED0}		# GHAIN MEDIAL
+
+^^f$	\u{FED1}		# FEH ISOLATED
+f$	\u{FED2}		# FEH FINAL
+^^f	\u{FED3}		# FEH INITIAL
+f	\u{FED4}		# FEH MEDIAL
+
+^^q$	\u{FED5}		# QAF ISOLATED
+q$	\u{FED6}		# QAF FINAL
+^^q	\u{FED7}		# QAF INITIAL
+q	\u{FED8}		# QAF MEDIAL
+
+^^k$	\u{FED9}		# KAF ISOLATED
+k$	\u{FEDA}		# KAF FINAL
+^^k	\u{FEDB}		# KAF INITIAL
+k	\u{FEDC}		# KAF MEDIAL
+
+^^l$	\u{FEDD}		# LAM ISOLATED
+l$	\u{FEDE}		# LAM FINAL
+^^l	\u{FEDF}		# LAM INITIAL
+l	\u{FEE0}		# LAM MEDIAL
+
+^^m$	\u{FEE1}		# MEM ISOLATED
+m$	\u{FEE2}		# MEM FINAL
+^^m	\u{FEE3}		# MEM INITIAL
+m	\u{FEE4}		# MEM MEDIAL
+
+^^N$	\u{FEE5}		# NUN ISOLATED
+N$	\u{FEE6}		# NUN FINAL
+^^N	\u{FEE7}		# NUN INITIAL
+N	\u{FEE8}		# NUN MEDIAL
+
+^^H$	\u{FEE9}		# HEH ISOLATED
+H$	\u{FEEA}		# HEH FINAL
+^^H	\u{FEEB}		# HEH INITIAL
+H	\u{FEEC}		# HEH MEDIAL
+
+^^w	\u{FEED}		# WAW ISOLATED
+w	\u{FEEE}		# WAW FINAL
+
+^^y	\u{FEEF}		# ALEF MAKSURA ISOLATED
+y	\u{FEF0}		# ALEF MAKSURA FINAL
+
+^^yh$	\u{FEF1}		# YEH ISOLATED
+yh$	\u{FEF2}		# YEH FINAL
+^^yh	\u{FEF3}		# YEH INITIAL
+yh	\u{FEF4}		# YEH MEDIAL
+
+## Hamza
+'	\u{FE80}		# HAMZA
+
+## Vowls
+an	\u{FE70}		# FATHATAN
+un	\u{FE72}		# DAMMATAN
+in	\u{FE74}		# KASRATAN
+a	\u{FE76}		# FATHA
+u	\u{FE78}		# DAMMA
+i	\u{FE7A}		# KASRA
+&	\u{FE7C}		# SHADDA
+e	\u{FE7E}		# SUKUN
+-an	\u{FE71}		# TATWEEL with FATHA
+#-un	\u{FE73}		# TATWEEL with DAMMATAN
+#-in	\u{FE75}		# TATWEEL with KASRATAN
+-a	\u{FE77}		# TATWEEL with FATHA
+-u	\u{FE79}		# TATWEEL with DAMMA
+-i	\u{FE7B}		# TATWEEL with KASRA
+-&	\u{FE7D}		# TATWEEL with SHADDA
+-e	\u{FE7F}		# TATWEEL with SUKUN
+
+aa	\u{653}		\x20\u{653}	# MADDAH ABOVE
+'h	\u{654}		\x20\u{654}	# HAMZA ABOVE
+'n	\u{655}		\x20\u{655}	# HAMZA BELOW
+
+ah	\u{670}		\x20\u{670}	# SUPERSCRIPT ALEF
+
+## Punctuations
+,	\u{60C}		# COMMA
+;	\u{61B}		# SEMICOLON
+?	\u{61F}		# QUESTION MARK
+%	\u{66A}		# PERCENT SIGN
+,n	\u{66B}		# DECIMAL SEPARATOR
+,h	\u{66B}		# THOUSANDS SEPARATOR
+*	\u{66C}		# FIVE POINTED STAR
+
+--	\u{640}		# TATWEEL
+
+## Numbers
+0	\u{660}		# 0
+1	\u{661}		# 1
+2	\u{662}		# 2
+3	\u{663}		# 3
+4	\u{664}		# 4
+5	\u{665}		# 5
+6	\u{666}		# 6
+7	\u{667}		# 7
+8	\u{668}		# 8
+9	\u{669}		# 9
+
+## Combination
+^^A'&	\u{FE81}		# ALEF ISOLATED with MADDA
+A'&	\u{FE82}		# ALEF FINAL with MADDA
+^^Aaa	\u{FE81}		# ALEF ISOLATED with MADDA
+Aaa	\u{FE82}		# ALEF FINAL with MADDA
+
+^^A'h	\u{FE83}		# ALEF ISOLATED with HAMZA ABOVE
+A'h	\u{FE84}		# ALEF FINAL with HAMZA ABOVE
+
+^^w'h	\u{FE85}		# WAW ISOLATED with HAMZA ABOVE
+w'h	\u{FE86}		# WAW FINAL with HAMZA ABOVE
+
+^^A'n	\u{FE87}		# ALEF ISOLATED with HAMZA BELOW
+A'n	\u{FE88}		# ALEF FINAL with HAMZA BELOW
+
+^^y'h	\u{FE89}		# YEH ISOLATED with HAMZA ABOVE
+y'h	\u{FE8A}		# YEH FINAL with HAMZA ABOVE
+
+^^A'a	\u{FE83}\u{FE76}	# ALEF with HAMZA and FATHA
+A'a	\u{FE84}\u{FE76}	# ALEF with HAMZA and FATHA
+
+^^A'u	\u{FE83}\u{FE78}	# ALEF with HAMZA and DAMMA
+A'u	\u{FE84}\u{FE78}	# ALEF with HAMZA and DAMMA
+
+^^A'i	\u{FE87}\u{FE7A}	# ALEF with HAMZA and KASRA
+A'i	\u{FE88}\u{FE7A}	# ALEF with HAMZA and KASRA
+
+^^w'a	\u{FE85}\u{FE76}	# WAW with HAMZA and FATHA
+w'a	\u{FE86}\u{FE76}	# WAW with HAMZA and FATHA
+
+^^w'u	\u{FE85}\u{FE78}	# WAW with HAMZA and DAMMA
+w'u	\u{FE86}\u{FE78}	# WAW with HAMZA and DAMMA
+
+#^^w'i	\u{FE85}\u{FE78}	# WAW with HAMZA and KASRA
+#w'i	\u{FE86}\u{FE78}	# WAW with HAMZA and KASRA
+
+^^y'a	\u{FE89}\u{FE76}	# YEH with HAMZA and FATHA
+y'a	\u{FE8A}\u{FE76}	# YEH with HAMZA and FATHA
+
+^^y'u	\u{FE89}\u{FE78}	# YEH with HAMZA and DAMMA
+y'u	\u{FE8A}\u{FE78}	# YEH with HAMZA and DAMMA
+
+^^y'i	\u{FE89}\u{FE7A}	# YEH with HAMZA and KASRA
+y'i	\u{FE8A}\u{FE7A}	# YEH with HAMZA and KASRA
+
+## Function Symbol
+$	\0
+^^	\0
+-	\0
+
+## If you need final form in isolated form context, spell like "|b$"
+|	\0
