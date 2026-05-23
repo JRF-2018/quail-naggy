@@ -1,0 +1,32 @@
+--- SKK-JISYO.china_taiwan	2026-05-23 04:00:50.407705700 +0900
++++ SKK-JISYO.china_taiwan.fixed	2026-05-23 04:04:20.423638900 +0900
+@@ -1,4 +1,4 @@
+-;; -*- mode: fundamental; coding: euc-jp -*-
++;; -*- mode: fundamental; coding: euc-jisx0213 -*-
+ ;; SKK Ãæ¹ñ¡¢ÂæÏÑÃÏÌ¾¼­½ñ
+ ;; Copyright (C) 2000 NAKAJIMA Mikio <minakaji@osaka.email.ne.jp>
+ ;;
+@@ -60,12 +60,12 @@
+ miaoli /ÉÄ·ª/
+ nanjing /Æîµþ;Ãæ¹ñ¹¾ÁÉ¾Ê¤Î¹Á»Ô/
+ qinghai /ÀÄ³¤;Ãæ¹ñÀ¾Éô¤Î¾Ê/
+-quemoy /¥¢¥â¥¤/
++quemoy /ÖüÌç/¥¢¥â¥¤/
+ shaanxi /ïýÀ¾;Ãæ¹ñÃæÉô¤Î¾Ê/
+ shandong /»³Åì;Ãæ¹ñ¡¢»³ÅìÈ¾Åç¤È²«²Ï²¼Î®°è¤ÎÊ¿Ìî¤òÀê¤á¤ë¾Ê/
+ shanghai /¾å³¤;Ãæ¹ñ¡¢Ä¹¹¾²Ï¸ý¤ÎÀ¯ÉÜ¤ÎÄ¾³í»Ô/
+ shanxi /»³À¾;Ãæ¹ñËÌÉô¤Î¾Ê/
+-shenzhen /¿¼¥»¥ó/
++shenzhen /¿¼¯Å/
+ sichuan /»ÍÀî;Ãæ¹ñ¡¢Ä¹¹¾¾åÎ®°è¤Î¾Ê/
+ suao /ÁÉß´/
+ taichung /ÂæÃæ;ÂæÏÑÃæÀ¾Éô¤Î»Ô/
+@@ -133,7 +133,7 @@
+ ¤·¤ç¤¯ /Àî/éæ;Ãæ¹ñ¡¢Ä¹¹¾¾åÎ®°è¤Î¾Ê/
+ ¤·¤ó¤­¤ç¤¦ /Xinjiang/¿·áÅ/
+ ¤·¤ó¤­¤ç¤¦¤¦¤£¤°¤ë /Xinjianguygur;¿·áÅ¥¦¥¤¥°¥ë/¿·áÅ¥¦¥¤¥°¥ë;¿·áÅ¥¦¥¤¥°¥ë/
+-¤·¤ó¤»¤ó /Shenzhen/¿¼¥»¥ó/
++¤·¤ó¤»¤ó /Shenzhen/¿¼¯Å/
+ ¤·¤ó¤Á¤¯ /Hsinchu;ÂæÏÑËÌÉô¤Î»Ô/¿·ÃÝ;ÂæÏÑËÌÉô¤Î»Ô/
+ ¤·¤ó¤è¤¦ /ßÄÍÛ;Ãæ¹ñ¡¢ÎËÇ«¾Ê¤Î¾ÊÅÔ/
+ ¤¸¤å¤¦¤±¤¤ /½Å·Ä;Ãæ¹ñ¡¢»ÍÀî¾Ê¤ÎÅÔ»Ô/
