@@ -1,6 +1,6 @@
 # quail-naggy
 
-<!-- Time-stamp: "2026-05-23T02:57:00Z" -->
+<!-- Time-stamp: "2026-05-23T03:06:18Z" -->
 
 単漢字変換 Input Method for Emacs。
 
@@ -10,7 +10,7 @@
 http://jrf.cocolog-nifty.com/software/2015/10/post.html
 
 
-** `Dockerfile` の使い方
+## `Dockerfile` の使い方
 
 まず使ってみたいという方のために、この GitHub のリポジトリでは、Dockerfile をご用意しました。
 
