@@ -1,8 +1,8 @@
 ;; -*- mode: Emacs-Lisp; coding: utf-8 -*-
 ;;; quail-naggy.el --- A simple input method.
-;; Time-stamp: <2026-05-19T11:56:24Z>
+;; Time-stamp: <2026-05-23T08:29:35Z>
 ;;
-(defconst quail-naggy-version-number "0.19"
+(defconst quail-naggy-version-number "0.20"
   "Version number for this version of quail-naggy.")
 (defconst quail-naggy-version
   (format "quail-naggy version %s" quail-naggy-version-number)
@@ -435,6 +435,9 @@
 (defvar naggy-vk-highlight-char nil
   "non-nil string ならば highligt 時にその文字を後ろにつける。")
 
+(defvar naggy-vk-use-parent-frame nil
+  "t ならば親フレームの子として候補ウィンドウを作る。naggy-vk-use-frame が 'auto か 'invisible 以外うまくいかない。")
+
 ;;
 ;; システム変数
 ;;
@@ -529,8 +532,12 @@
   (cond ((eq naggy-vk-use-frame 'auto)
 	 (let* ((margin naggy-vk-auto-window-margin)
 		(param (frame-parameters))
-		(top (+ (cdr (assq 'top param)) 20))
-		(left (cdr (assq 'left param)))
+		(top (if naggy-vk-use-parent-frame
+			 0
+		       (+ (cdr (assq 'top param)) 20)))
+		(left (if naggy-vk-use-parent-frame
+			  0
+			(cdr (assq 'left param))))
 		(ht (cdr (assq 'height param)))
 		(cht (frame-char-height))
 		(cwt (frame-char-width))
@@ -551,15 +558,19 @@
 		(cons 'left left))
 	     (list
 	      (cons 'top (+ top  (- (+ (* cht (- (cdr pos) 
-						 (if naggy-vk-use-mode-line 5 6)))
+						 (if naggy-vk-use-mode-line (- naggy-vk-frame-length 1) naggy-vk-frame-length)))
 				       (/ cht 2))
 				    margin)))
 	      (cons 'left left)))))
 	((or (eq naggy-vk-use-frame 'top) (eq naggy-vk-use-frame 'invisible))
-	 (let* ((top (mod (cdr (assq 'top (frame-parameters))) 
-			  (x-display-pixel-height)))
-		(left (mod (cdr (assq 'left (frame-parameters)))
-			   (x-display-pixel-width)))
+	 (let* ((top-param (cdr (assq 'top (frame-parameters))))
+		(left-param (cdr (assq 'left (frame-parameters))))
+		(top (if naggy-vk-use-parent-frame
+			 (* 7 (frame-char-height))
+		       (mod top-param (x-display-pixel-height))))
+		(left (if naggy-vk-use-parent-frame
+			  0
+			(mod left-param (x-display-pixel-width))))
 		(bottom (+ top (frame-pixel-height))))
 	   (list (cons 'top (- top (* 7 (frame-char-height))))
 		 (cons 'left (+ left (* (/ (- (frame-width) 50) 2)
@@ -575,13 +586,16 @@
   naggy-vk-display-kouho-list内でのみ使用。"
   (setq naggy-vk-state 'open)
   (if naggy-vk-use-frame
-      (progn
+      (let ((parent (window-frame)))
 	(or (and naggy-vk-kouho-frame (frame-live-p naggy-vk-kouho-frame))
 	    (let ((inhibit-quit t))
 	      (setq naggy-vk-kouho-frame 
 		    (make-frame (append (naggy-vk-get-kouho-frame-geometry)
+					(if naggy-vk-use-parent-frame
+					    (list (cons 'parent-frame parent))
+					  nil)
 					(list
-					 '(name . "naggy_vk_candidates") 
+					 '(name . "naggy_vk_candidates")
 					 (cons 'height 
 					       (if naggy-vk-use-mode-line 
 						   (1- naggy-vk-frame-length)
@@ -592,15 +606,17 @@
 					   '(width . 50))
 					 '(vertical-scroll-bars . nil)
 					 '(menu-bar-lines . nil)
+					 '(tool-bar-lines . nil)
 					 '(user-position t)
 					 (cons 'modeline naggy-vk-use-mode-line)
 					 '(minibuffer . nil)))))))
-	(if (or (eq naggy-vk-use-frame 'auto)
-		(eq naggy-vk-use-frame 'top))
-	    (modify-frame-parameters naggy-vk-kouho-frame 
-				     (naggy-vk-get-kouho-frame-geometry)))
 	(or (frame-visible-p naggy-vk-kouho-frame)
 	    (make-frame-visible naggy-vk-kouho-frame))
+	(if (or (eq naggy-vk-use-frame 'auto)
+		(eq naggy-vk-use-frame 'top)
+		(eq naggy-vk-use-frame 'invisible))
+	    (modify-frame-parameters naggy-vk-kouho-frame 
+				     (naggy-vk-get-kouho-frame-geometry)))
 	(if (string-match "XEmacs" emacs-version)
 	    (progn
 	      (set-specifier scrollbar-width (list naggy-vk-kouho-frame 0))

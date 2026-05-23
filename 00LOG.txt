@@ -1,14 +1,39 @@
 
 
 	quail-naggy ログ
-	(Created: 2009-09-03 +0900, Time-stamp: <2026-05-19T12:12:29Z>)
+	(Created: 2009-09-03 +0900, Time-stamp: <2026-05-23T08:45:26Z>)
 
 
 X. ログ
 
-2026-05-19 -- quail-naggy-alt-convert を取り込む。
+2026-05-23 -- quai-nagyy.el
+
+  * 更新: バージョン 0.20。
+
+  * linux (WSL2) では naggy-vk-use-parent-frame を設定することでまとも
+    に 'auto なフレーム配置が可能に。しかし、複数フレームには対応して
+    ないためデフォルトにはしなかった。ただ Dockerfile などから起動させ
+    る emacs についてはそれで動かすことにした。逆に 'top にすると、
+    raise-frame がウィンドウマネージャーの制限のためうまく機能しないこ
+    とがあるため苦肉の策としてそうした。
+
+2026-05-23 -- Dockerfile
+
+  * まず使うということができるよう Dockerfile を作る。
+
+2026-05-19 -- quail-naggy.el
+
+  * 更新: バージョン 0.19。
+
+  * quail-naggy-alt-convert を取り込む。
+
+2021-12-24 -- quail-naggy.el & naggy-backend.pl
+
+  * 更新: バージョン 0.18。
 
 2020-12-01 -- make_emoji_skk_dic.pl
+
+  * 更新: バージョン 0.17。
 
   * ↓より emoji.txt v2.2.1 を取って絵文字辞書を作る。
     《日本語で絵文字入力するための IME 追加辞書を公開しました - Qiita》  
@@ -18,15 +43,23 @@ X. ログ
 
 2020-01-24 -- naggy-backend.pl
 
+  * 更新: バージョン 0.16。
+
   * 内部的な変更。先頭が大文字の単漢字変換を SKK にするかどうかを
     default-init.nginit 内で指定するようにした。
 
 2020-01-23 -- naggy-backend.pl
 
+  * 更新: バージョン 0.15。
+
   * SKK を使うとき ":" を先頭に打つのは面倒なので、先頭が大文字なら
     SKK を参照するようにする。(2020-01-16 提案)
 
   * delete-tankanji-dic, delete-skk-dic を作った。
+
+2017-11-13 -- quail-naggy.el
+
+  * 更新: バージョン 0.10。
 
 2017-11-12 -- quail-naggy.el
 
@@ -40,6 +73,10 @@ X. ログ
 
   * 公開のために、lib/Naggy/Backend.pm のバージョンナンバーを 0.10 に
     上げておく。
+
+2017-07-13 -- quail-naggy.el
+
+  * 更新: バージョン 0.09。
 
 2017-07-12 -- quail-naggy.el
 
@@ -77,6 +114,10 @@ X. ログ
     Encode ではうまく UTF-8 に変換されないらしく、結局、変換結果はおか
     しくなってしまうので意味のない修正ということになる。
 
+2017-06-08 -- quail-naggy.el
+
+  * 更新: バージョン 0.08。
+
 2017-05-28 -- quail-naggy.el
 
   * 変換時 backspace が naggy-convert-prev-page に割り当たっていなかっ
@@ -99,6 +140,8 @@ X. ログ
     quail-naggy よりも jrf_semaphore.pl に重要な変更。
 
 2017-04-29 -- quail-naggy.el
+
+  * 更新: バージョン 0.07。
 
   * 「『風』は、入力が終ったあととかは、制御キーでバックスペースなどが
     自由にできる。しかし、quail-naggy.el では、元の quail モードの制限らし
@@ -199,7 +242,13 @@ X. ログ
 
   * quail 入力のとき、shift+space で、スペースが入力できるようにした。
 
+2016-02-09 -- quail-naggy.el
+
+  * 更新: バージョン 0.05。
+
 2015-11-15 -- quail-naggy.el
+
+  * 更新: バージョン 0.04。
 
   * マウスで候補を指定できるようにした。mouse-1 で指定。mouse-2 で決定。
 

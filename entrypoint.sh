@@ -103,7 +103,7 @@ cat << 'EOF' > /tmp/.emacs
 ;(setq initial-frame-alist default-frame-alist)
 
 (when (display-graphic-p)
-  (tool-bar-mode -1)
+;  (tool-bar-mode -1)
 ;  (menu-bar-mode -1)
 ;  (scroll-bar-mode -1)
 
@@ -126,25 +126,28 @@ cat << 'EOF' > /tmp/.emacs
   (set-fontset-font t 'unicode (font-spec :family my/naggy-font-family))
 
   ;; 候補フレームが作られた瞬間に、そこへも強制適用
-  (defun my/naggy-fix-frame-font (frame)
-    (when (equal (frame-parameter frame 'name) "naggy_vk_candidates")
-      (with-selected-frame frame
-        (set-frame-font my/naggy-font t t)
-        (set-face-attribute 'default frame
-                            :family my/naggy-font-family
-                            :height 120
-                            :weight 'normal)
-        (set-frame-parameter frame 'tool-bar-lines 0)
-        (set-frame-parameter frame 'menu-bar-lines 0)
-        (set-frame-parameter frame 'vertical-scroll-bars nil))))
-
-  (add-hook 'after-make-frame-functions #'my/naggy-fix-frame-font))
+;  (defun my/naggy-fix-frame-font (frame)
+;    (when (equal (frame-parameter frame 'name) "naggy_vk_candidates")
+;      (with-selected-frame frame
+;        (set-frame-font my/naggy-font t t)
+;        (set-face-attribute 'default frame
+;                            :family my/naggy-font-family
+;                            :height 120
+;                            :weight 'normal)
+;        (set-frame-parameter frame 'tool-bar-lines 0)
+;        (set-frame-parameter frame 'menu-bar-lines 0)
+;        (set-frame-parameter frame 'vertical-scroll-bars nil))))
+;
+;  (add-hook 'after-make-frame-functions #'my/naggy-fix-frame-font)
+  )
 
 (setq load-path (append load-path (list "/app/quail-naggy")))
 (require 'quail-naggy)
 (setq naggy-backend-program "/usr/bin/perl")
 (setq naggy-backend-options '("/app/quail-naggy/naggy-backend.pl"))
 (setq default-input-method "japanese-naggy")
+(setq naggy-vk-use-parent-frame t)
+(setq naggy-vk-use-frame 'auto)
 
 ;; 2015年当時の取扱説明書に記載されていた Emacs 24.5 以降用の画面判定
 (if (>= (string-to-number emacs-version) 24.5)
@@ -152,6 +155,8 @@ cat << 'EOF' > /tmp/.emacs
       (setq naggy-vk-split-window-length 7)
       (setq naggy-vk-frame-length 7)))
 EOF
+
+cd /app/work
 
 # 生成した .emacs を読み込ませて、本物の Emacs を GUI（または端末）で起動！
 exec emacs --display="$DISPLAY" -l /tmp/.emacs

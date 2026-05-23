@@ -2,7 +2,7 @@
 
     quail-naggy.el: 単漢字変換 Input Method for Emacs.
 
-    (Created: 2015-10-16 +0900, Time-stamp: <2026-05-19T12:14:37Z>)
+    (Created: 2015-10-16 +0900, Time-stamp: <2026-05-23T08:40:10Z>)
 
 
 ■ About the "quail-naggy.el"
@@ -327,6 +327,53 @@ aka:akeru: のように最後を : にした入力をすればよい。
 </source>
 
 
+■ Dockerfile の使い方
+
+まず使ってみたいという方のために、Dockerfile を用意した。
+
+Linux (私は WSL2 を使っている)で docker がインストールされてるとする。
+
+<source>
+cd quail-naggy
+docker build -t jrf/quail-naggy-emacs .
+</source>
+
+…を実行したあと、もしIME「風」の権利をお持ちなどその辞書を使いたい場
+合は…、
+
+<source>
+docker run -it --rm \
+    -e MODE=kaze \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v "${PWD}:/app/work" \
+    jrf/quail-naggy-emacs
+</source>
+
+そうでない場合は…
+
+<source>
+docker run -it --rm \
+    -e MODE=default \
+    -e DISPLAY=$DISPLAY \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -v "${PWD}:/app/work" \
+    jrf/quail-naggy-emacs
+</source>
+
+…とすれば Emacs が起動するはず。Emacs が起動したら、最初の画面で `q`
+を押して文字を入力できるようにしておく。
+
+ここで `C-\` で変換文字列入力モードに入り、aka:myoujou などと入力して
+スペースを押すと変換がはじまり候補ウィンドウが表示される。「明」は単漢
+字 aka の読みを持ち、単語 myoujou の一部と重なるため、ハイライトが付い
+て表示される。キーボードのその位置を押すと確定。無変換キーでひらがな変
+換、変換キーでカタカナ変換、TABキーで全角変換である。
+
+フォント等は詰めてないし、元の開発が Windows なのだが、それと同じ動き
+にはできていない。あくまで参考程度の動作とご了承いただきたい。
+
+
 ■ わかっている不具合
 
 『風』は、入力が終ったあととかは、制御キーでバックスペースなどが自由に
@@ -427,20 +474,8 @@ I often have bouts of schizophrenia, but I believe that my
 intention is legitimately fulfilled.
 
 
-■ 更新ログ
+■ 初公開
 
-  2021-12-24 -- 更新。バージョン 0.18。
-  2020-12-01 -- 更新。バージョン 0.17。
-  2020-01-24 -- 更新。バージョン 0.16。
-  2020-01-23 -- 更新。バージョン 0.15。
-  2017-11-13 -- 更新。バージョン 0.10。
-  2017-07-13 -- 更新。バージョン 0.09。
-  2017-06-08 -- 更新。バージョン 0.08。
-  2017-04-29 -- 更新。バージョン 0.07。
-  2016-02-09 -- 更新。バージョン 0.05。
-  2015-11-15 -- 更新。バージョン 0.04。
-  2015-11-13 -- 更新。バージョン 0.03。
-  2015-10-23 -- 更新。バージョン 0.02。
   2015-10-16 -- 初公開。バージョン 0.01。
 
 
