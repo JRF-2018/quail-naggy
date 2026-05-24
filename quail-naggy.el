@@ -1,8 +1,8 @@
 ;; -*- mode: Emacs-Lisp; coding: utf-8 -*-
 ;;; quail-naggy.el --- A simple input method.
-;; Time-stamp: <2026-05-23T08:29:35Z>
+;; Time-stamp: <2026-05-24T15:32:03Z>
 ;;
-(defconst quail-naggy-version-number "0.20"
+(defconst quail-naggy-version-number "0.21"
   "Version number for this version of quail-naggy.")
 (defconst quail-naggy-version
   (format "quail-naggy version %s" quail-naggy-version-number)

@@ -33,7 +33,7 @@ if [ "$MODE" = "kaze" ]; then
     cat << 'EOF' > site-init.nginit
 load-init-file default-init.nginit
 set-tankanji-dic Wind2.txt -s
-#set-tankanji-dic tankanji.txt -e
+#set-tankanji-dic tankanji-2026.txt -e
 #add-skk-dic SKK-JISYO.L -e
 add-skk-dic SKK-JISYO.fixed.L -e
 add-skk-dic bushu-skk-dic.txt -e
@@ -43,15 +43,15 @@ EOF
 
 else
     echo "=== デフォルトの単漢字辞書を構成中... ==="
-    wget -q -O /tmp/jrf_tankanji-20120505.zip https://github.com/JRF-2018/quail-naggy/releases/download/jrf_tankanji-20120505/jrf_tankanji-20120505.zip
-    unzip -qo -j /tmp/jrf_tankanji-20120505.zip tankanji.txt
-    perl make_tankanji_dic_db.pl -e tankanji.txt
+    git clone --depth 1 https://github.com/JRF-2018/jrf_tankanji-2026.git /tmp/tankanji-repo
+    cp /tmp/tankanji-repo/tankanji-2026.txt ./
+    perl make_tankanji_dic_db.pl -e tankanji-2026.txt
 
     echo "=== site-init.nginit を編集... ==="
     cat << 'EOF' > site-init.nginit
 load-init-file default-init.nginit
 #set-tankanji-dic Wind2.txt -s
-set-tankanji-dic tankanji.txt -e
+set-tankanji-dic tankanji-2026.txt -e
 #add-skk-dic SKK-JISYO.L -e
 add-skk-dic SKK-JISYO.fixed.L -e
 add-skk-dic bushu-skk-dic.txt -e
